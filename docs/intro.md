@@ -13,7 +13,7 @@ Get started by **installing the plugin** and activate the new **Physics Server**
 
 :::note
 
-There are 4 versions of the Rapier plugin. One for **2D**, one for **3D**. And for every dimension there is one for **cross platform determinism** and one with **parallel and SIMD** feature.
+There are 4 versions of the Rapier plugin. One for **2D**, one for **3D**. And for every dimension there is one for **cross platform determinism** and one with **parallel and SIMD** feature. If in doubt use the **parallel and SIMD** one as it's going to be faster.
 
 :::
 
