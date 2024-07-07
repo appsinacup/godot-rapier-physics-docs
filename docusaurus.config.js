@@ -73,6 +73,17 @@ const config = {
             className: 'header-button-donate'
           },
           {
+            href: 'https://discord.gg/56dMud8HYn',
+            label: 'Discord',
+            position: 'right',
+            className: 'header-button-donate'
+          },
+          {
+            href: 'https://rapier.rs',
+            label: 'Rapier Lib',
+            position: 'right',
+          },
+          {
             href: 'https://appsinacup.com',
             label: 'Apps In A Cup',
             position: 'right',
@@ -108,6 +119,10 @@ const config = {
           {
             title: 'More',
             items: [
+              {
+                label: 'Rapier Lib',
+                href: 'https://rapier.rs',
+              },
               {
                 label: 'Apps In A Cup',
                 href: 'https://appsinacup.com',

@@ -8,9 +8,7 @@ In Godot a Physics Engine is a system that offers **Spaces**, **Areas**, **Stati
 - [PhysicsServer2D](https://docs.godotengine.org/en/stable/classes/class_physicsserver2dextension.html#class-physicsserver2dextension)
 - [PhysicsServer3D](https://docs.godotengine.org/en/stable/classes/class_physicsserver3dextension.html#class-physicsserver3dextension)
 
-This is exactly what tha Rapier Physics Server does. And thats why the physics engine should work exactly the same after changing it from the default one, as all the function calls (at least as far as Godot is concerned) are the same.
-
-The hierarchy of these objects looks like this:
+This is exactly what the Rapier Physics Server does. The hierarchy of these objects looks like this:
 
 - **Space**: contains
   - **Rigidbodies**: can contain

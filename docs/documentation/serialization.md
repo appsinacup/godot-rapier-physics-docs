@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Serialization
@@ -51,4 +51,108 @@ var file = FileAccess.open("user://space.json", FileAccess.WRITE)
 file.store_string(space_state_json)
 ```
 
-In case you save to a file, you can store it and keep overriding the file, and then check the state in a moment you stop the game for eg.
+In case you save to a file, you can store it and keep overriding the file, and then check the state in a moment you stop the game for eg. In the example above we are storing to `user://` file location. This can be accessed by going to: **Project** -> **Open User Data Folder**.
+
+The resulting file should looks something like this:
+
+```js
+{
+  "inner": {
+    "impulse_joint_set": {
+        <rapier internal data>
+    },
+    "multibody_joint_set": {
+        <rapier internal data>
+    },
+    "collider_set": {
+        <rapier internal data>
+    },
+    "rigid_body_set": {
+        <rapier internal data>
+    },
+    "handle": {
+        <rapier internal data>
+    }
+  },
+  "space": {
+    <rapier internal data>
+  }
+}
+```
+
+The **inner** structure will be the objects created inside the **Rapier Lib**. The **space** structure will contain the objects that the **Godot Rapier Wrapper** uses to communicate with Godot.
+
+The **inner** structure contains maps to Godot data like this:
+- rigidbodies map to **rigid_body_set**
+- joints map to **impulse_joint_set**
+- shapes map to **collider_set**
+- multibody_joint_set are unused and handle is the map from **space** to **inner** structure
+
+## Space Deserialization
+
+TODO
+
+## Collision Object Serialization
+
+A Collision Object inside the wrapper refers to either a:
+- RigidBody
+- Area
+- StaticBody
+- CharacterBody
+
+This serializes the data a Rigidbody structure has in Godot. This does not save the actual Rigidbody Rapier uses, that is stored in the Space serialization. This just stores a handle to that.
+
+```js
+var body_json = RapierPhysicsServer2D.collision_object_export_json(body_rid)
+# or
+var body_json = RapierPhysicsServer3D.collision_object_export_json(body_rid)
+```
+
+In order to get the **body_rid**, call the `get_rid()` method on the Collision Object.
+
+## Joint Serialization
+
+A Joint object refers to a Godot Joint. This has a reference to a handle that maps to a Rapier Joint. That one is stored on the Space.
+
+```js
+var joint_json = RapierPhysicsServer2D.joint_export_json(joint_rid)
+# or
+var joint_json = RapierPhysicsServer3D.joint_export_json(joint_rid)
+```
+
+## Joint Serialization
+
+A Joint object refers to a Godot Joint. This has a reference to a handle that maps to a Rapier Joint. That one is stored on the Space.
+
+```js
+var joint_json = RapierPhysicsServer2D.joint_export_json(joint_rid)
+# or
+var joint_json = RapierPhysicsServer3D.joint_export_json(joint_rid)
+```
+
+
+## Shape Serialization
+
+A Shape object refers to a Godot Shape. This has a reference to a handle that maps to a Rapier Collider. That one is stored on the Space.
+
+```js
+var shape_json = RapierPhysicsServer2D.shape_export_json(joint_rid)
+# or
+var shape_json = RapierPhysicsServer3D.shape_export_json(joint_rid)
+```
+
+:::note
+
+A Shape can map to 0 or 1 or many Rapier Colliders. This is because in Godot, a shape can either be used reused for multiple RigidBodies, or can be used just for Physics Queries.
+
+:::
+
+## Serialize All Objects
+
+It is also possible to get all the objects inside the Physics Server of a specific type:
+
+```js
+RapierPhysicsServer2D.collision_objects_export_json()
+RapierPhysicsServer2D.joints_export_json()
+RapierPhysicsServer2D.shapes_export_json()
+```
