@@ -21,6 +21,9 @@ function HomepageHeader() {
           style={{
             display: 'block', 
             margin: '0 auto',
+            border: 'solid 10px #8da5f3', 
+            borderRadius: '10px',
+            boxShadow: '0 0 0 4px black'
           }}
         />
 
@@ -33,6 +36,9 @@ function HomepageHeader() {
             marginRight: '64px', 
             display: 'block', 
             margin: '0 auto',
+            border: 'solid 10px #8da5f3', 
+            borderRadius: '10px',
+            boxShadow: '0 0 0 4px black'
           }}
         /></p>
         
