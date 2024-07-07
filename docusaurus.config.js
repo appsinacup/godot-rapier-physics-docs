@@ -8,7 +8,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Rapier Physics',
+  title: 'Godot Rapier Physics',
   tagline: '2D and 3D Physics Plugin for Godot 4.x',
   favicon: 'img/rapier.jpg',
 
@@ -54,7 +54,7 @@ const config = {
     ({
       image: 'img/rapier_banner.jpg',
       navbar: {
-        title: 'Rapier Physics',
+        title: 'Godot Rapier Physics',
         logo: {
           alt: 'Rapier Logo',
           src: 'img/rapier.jpg',
