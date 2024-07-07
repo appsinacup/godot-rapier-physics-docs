@@ -41,7 +41,7 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Save Checkpoints',
+    title: 'Serializable',
     Svg: require('@site/static/img/undraw_export_files_re_99ar.svg').default,
     description: (
       <>

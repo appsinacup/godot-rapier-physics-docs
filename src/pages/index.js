@@ -7,55 +7,69 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import animation from '/static/img/rapier-vid.gif'
+import fluid from '/static/img/fluid_shader.gif'
 import banner from '/static/img/rapier_banner.jpg'
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx('hero hero--primary', styles.heroBanner)}
+    style={{
+      paddingTop: '30px',
+    }}>
       <div className="container">
-        <img 
-          src={banner} 
-          alt="Rapier Logo" 
-          width={512} 
+        <img
+          src={banner}
+          alt="Rapier Logo"
+          width={512}
           style={{
-            display: 'block', 
+            display: 'block',
             margin: '0 auto',
-            border: 'solid 10px #8da5f3', 
+            border: 'solid 4px black',
             borderRadius: '10px',
-            boxShadow: '0 0 0 4px black'
           }}
         />
 
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <p style={{textAlign: 'center'}}><img 
-          src={animation} 
-          alt="loading..." 
-          width={256} 
-          style={{
-            marginRight: '64px', 
-            display: 'block', 
-            margin: '0 auto',
-            border: 'solid 10px #8da5f3', 
-            borderRadius: '10px',
-            boxShadow: '0 0 0 4px black'
-          }}
-        /></p>
-        
+        <div style={{ textAlign: 'center', margin: 'auto', display: 'block', paddingBottom: '10px' }}>
+          <img
+              src={animation}
+              alt="loading..."
+              height={160}
+              style={{
+                "border-top-left-radius": "5px",
+                "border-bottom-left-radius": "5px",
+                borderRadius: '10px',
+                border: 'solid 4px black',
+              }}
+            />
+            <img
+              src={fluid}
+              alt="loading..."
+              height={160}
+              style={{
+                "border-top-right-radius": "5px",
+                "border-bottom-right-radius": "5px",
+                borderRadius: '10px',
+                border: 'solid 4px black',
+              }}
+            />
+          </div>
+
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
             Documentation
           </Link>
-          </div>
+        </div>
       </div>
     </header>
   );
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`${siteConfig.title}`}

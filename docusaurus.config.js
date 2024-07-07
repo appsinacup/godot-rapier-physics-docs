@@ -9,7 +9,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Godot Rapier Physics',
-  tagline: '2D and 3D Physics Plugin for Godot 4.x',
+  tagline: '2D and 3D Physics Plugin for Godot 4.x with better stability, performance and liquids',
   favicon: 'img/rapier.jpg',
 
   // Set the production url of your site here
