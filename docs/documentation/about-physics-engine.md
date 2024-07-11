@@ -19,3 +19,7 @@ This is exactly what the Rapier Physics Server does. The hierarchy of these obje
   - **Character Controllers**: can contain
     - **Shapes**
 
+This plugin gives the option to **serialize** and **deserialize** these structures, as well as adds a new node that integrate with the existing physics concepts:
+
+- **Space** contains
+  - **Fluid**: interacts with all other physics objects
