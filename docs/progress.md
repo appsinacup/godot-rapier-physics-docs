@@ -26,7 +26,7 @@ This plugin is still being developed. See the tables below to get an idea of wha
 ✅ | ✅ | Space
 ✅ | ✅ | RigidBody
 ✅ | ✅ | StaticBody
-✅ | 🚧 | CharacterBody
+✅ | ✅ | CharacterBody
 N/A | 🚧 | SoftBody
 ✅ | ✅ | Area
 
@@ -43,7 +43,7 @@ N/A | 🚧 | SoftBody
 🚧 | Cone Twist Joint 3D
 🚧 | Generic 6 DOF Joint 3D
 🚧 | Hinge Joint 3D
-🚧 | Pin Join 3D
+✅ | Pin Join 3D
 🚧 | Slider Joint 3D
 
 ### Shapes 🚧
