@@ -19,7 +19,7 @@ This plugin is still being developed. See the tables below to get an idea of wha
 ✅|✅|iOS (arm64)
 ✅|✅|Web (wasm32)
 
-### Collision Objects 🚧
+### Collision Objects ✅
 
 2D | 3D | CollisionObject
 -|-|-
@@ -27,8 +27,10 @@ This plugin is still being developed. See the tables below to get an idea of wha
 ✅ | ✅ | RigidBody
 ✅ | ✅ | StaticBody
 ✅ | ✅ | CharacterBody
-N/A | 🚧 | SoftBody
+N/A | ❌ | SoftBody
 ✅ | ✅ | Area
+
+❌ - Not implemented in Rapier Lib
 
 ### Joints 🚧
 
