@@ -59,7 +59,7 @@ N/A | ❌ | SoftBody
 ✅|✅|Box/Rectangle Shape
 ✅|✅|Capsule Shape
 N/A|✅|Cylinder Shape
-N/A|🚧|Height Map Shape
+N/A|✅|Height Map Shape
 ✅|✅|Convex Polygon Shape
 ✅|🚧|Concave Polygon Shape
 
