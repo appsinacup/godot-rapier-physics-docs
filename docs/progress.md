@@ -48,20 +48,22 @@ N/A | ❌ | SoftBody
 ✅ | Pin Join 3D
 🚧 | Slider Joint 3D
 
-### Shapes 🚧
+### Shapes ✅
 
 2D | 3D | Shape
 -|-|-
 ✅|✅|World Boundary Shape
 ✅|N/A|Segment Shape
-🚧|🚧|Separation Ray Shape
+⌛|⌛|Separation Ray Shape
 ✅|✅|Circle/Sphere Shape
 ✅|✅|Box/Rectangle Shape
 ✅|✅|Capsule Shape
 N/A|✅|Cylinder Shape
 N/A|✅|Height Map Shape
 ✅|✅|Convex Polygon Shape
-✅|🚧|Concave Polygon Shape
+✅|✅|Concave Polygon Shape
+
+⌛ - Delayed, will implement at a later time
 
 ### Queries ✅
 
