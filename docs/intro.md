@@ -56,3 +56,20 @@ Go to **Project** -> **Project Settings**. Enable the **Advanced Settings** on t
 Then go to **Physics/2D** or **Physics/3D**. At the **Physics Engine** dropdown select the **Rapier2D** or **Rapier3D** physics engine.
 
 ![activate plugin](/img/intro/activate-plugin.png)
+
+## Web Settings
+
+When exporting for web, you have to enable a few settings, otherwise the whole build will give an error. Go to **Project** -> **Export...** and enable both **Extension Support** and **Thread Support**:
+
+![web](/img/intro/web.png)
+
+Next, you can also enable the **Runnable** option and then click **Run in browser**:
+
+![run-web](/img/intro/run-web.png)
+
+
+:::warning
+
+Do not install both the 2D and 3D version of Rapier plugin on web. Only one works at a time.
+
+:::
