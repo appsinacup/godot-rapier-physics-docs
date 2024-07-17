@@ -25,7 +25,7 @@ This plugin is still being developed. See the tables below to get an idea of wha
 -|-|-
 ✅|✅|Single Build
 🚧|🚧|Double Build
-✅|✅|Crolss Platform Deterministic Build
+✅|✅|Cross Platform Deterministic Build
 ✅|✅|Parallel SIMD Build
 
 ### Collision Objects ✅
