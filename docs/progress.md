@@ -24,7 +24,7 @@ This plugin is still being developed. See the tables below to get an idea of wha
 2D | 3D | Feature
 -|-|-
 ✅|✅|Single Build
-✅|✅|Double Build
+🚧|🚧|Double Build
 ✅|✅|Crolss Platform Deterministic Build
 ✅|✅|Parallel SIMD Build
 
