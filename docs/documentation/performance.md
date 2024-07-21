@@ -16,13 +16,9 @@ If not, it's possible as you have many objects the bottleneck is the rendering. 
 
 ## Benchmark
 
-In case you want to see if the performance you are getting is expected one or not, you can check the ratio of the numbers you get on Rapier and on Godot Physics, and compare with the table below.
+This benchmark is done by creating objects until FPS drops below 30. Running on a macbook m2 pro with Godot 4.3. Everything is run inside the godot editor using the [Godot Physics Tests](https://github.com/fabriceci/Godot-Physics-Tests) repository. Rendering is disabled for these tests as to only test physics solving speed. Higher number is better.
 
-This benchmark is done by creating objects until FPS drops below 30. Running on a macbook m2 pro with Godot 4.3. Everything is run inside the godot editor using the [Godot Physics Tests](https://github.com/fabriceci/Godot-Physics-Tests) repository. Rendering is disabled for these tests as to only test physics solving speed.
-
-Each cell shows max shape count. Higher number is better.
-
-Shape|Dimensions|Godot|Rapier (Rust)
--|-|-|-|
-Circle + Rectangle|2D|2800|6900
-Sphere + Box|3D|2700|5400
+Shape|Dimensions|Godot 4.3 beta|Rapier 0.7.18|[Box2D(2.4.1) 0.9.9 UNMAINTAINED](https://godotengine.org/asset-library/asset/2007)|[Jolt 0.13.beta](https://godotengine.org/asset-library/asset/1918)
+-|-|-|-|-|-
+Circle + Rectangle|2D|2800|6900|4200|N/A
+Sphere + Box|3D|2700|5400|N/A|7500
