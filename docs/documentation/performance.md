@@ -18,20 +18,11 @@ If not, it's possible as you have many objects the bottleneck is the rendering. 
 
 In case you want to see if the performance you are getting is expected one or not, you can check the ratio of the numbers you get on Rapier and on Godot Physics, and compare with the table below.
 
-This benchmark is done by creating objects until FPS drops below 30. Running on a macbook m2 pro with Godot 4.2. Everything is run inside the godot editor using the [Godot Physics Tests](https://github.com/fabriceci/Godot-Physics-Tests) repository.
+This benchmark is done by creating objects until FPS drops below 30. Running on a macbook m2 pro with Godot 4.3. Everything is run inside the godot editor using the [Godot Physics Tests](https://github.com/fabriceci/Godot-Physics-Tests) repository. Rendering is disabled for these tests as to only test physics solving speed.
 
 Each cell shows max shape count. Higher number is better.
 
-Shape|Godot 2D|Godot 3D|Rapier 2D old (C++)|Rapier 2D (Rust)|Rapier 3D (Rust)|Jolt 3D
--|-|-|-|-|-|-
-Sphere|5000|3300|8800|5500|5200|8000
-Box|3500|3200|7700|8000|5200|7200
-Capsule|4500|2700|8000|7000|5100|7400
-Convex Polygon|3500|3100|6500|6300|5000|8000
-
-
-:::note
-
-This plugin was recently rewritten from C++ to Rust. There are still some things missing from what it had originally and performance is slower than it used to be. This is to be considered beta and still work in progress.
-
-:::
+Shape|Dimensions|Godot|Rapier (Rust)
+-|-|-|-|
+Circle + Rectangle|2D|2800|6900
+Sphere + Box|3D|2700|5400
