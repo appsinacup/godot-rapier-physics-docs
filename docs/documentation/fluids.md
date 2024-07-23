@@ -55,26 +55,12 @@ The way the renderer works is it gets the points every frame and then draw an ob
 
 ### Fluid2DRenderer
 
-The most efficient way to render multiple objects is a **MultiMeshInstance2D**. This can be created easily by dragging a texture in the scene and then clicking on the sprite it created and clicking convert to **MeshInstance2D**:
-
-![mesh instance](/img/fluids/mesh_instance.png)
-
-The multimesh has methods for drawing efficiently:
-- **multimesh.set_instance_transform_2d(index, new_transform)**
-- **multimesh.set_instance_color(index, color)**
-
-This is what the **Fluid2DRenderer** node does. You assign it a **Fluid** node and a **Color**, and it then uses the default resources from the addon:
-- **multimesh.mesh**: `res://addons/godot-rapier2d/circle_mesh.tres`
-- **texture** `res://addons/godot-rapier2d/Circle2D.svg`
+The most efficient way to render multiple objects is a **MultiMeshInstance2D**. The **Fluid2DRenderer** node is a high level helper for this. You assign it a **Fluid** node and a **Color**,
 
 ![fluid renderer](/img/fluids/fluid_renderer.png)
 
 ### Fluid Shader
 
-If you want more realistic fluid, a shader that renders a fluid instead of a circle will do the job. For that you can use the `res://addons/godot-rapier2d/water_shader.gdshader` shader. The idea with this shader is that it draws on a texture the fluid, and then applies some processing over that to remove pixels that aren't close enough, or draws more where the fluid is closer.
-
-In order to use this shader, first create a **Fluid2DShaderRenderer**. This will create all the necesary nodes inside. This script will take care of copying the camera position and the fluid points.
-
-In order to set it up, you need to set the **Fluid** and the **Camera** property. Afterwards, run the program and see the fluid using a shader. Configure the shader by configuring the **Water Material** property.
+If you want more realistic fluid, you ca use the **Fluid2DShaderRenderer**, which uses a shader to draw the fluid. In order to set it up, you need to set the **Fluid** and the **Camera** property. Afterwards, run the program and see the fluid using a shader. Configure the shader by configuring the **Water Material** property.
 
 ![water shader](/img/fluids/water_shader.png)
