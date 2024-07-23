@@ -7,15 +7,15 @@ sidebar_position: 2
 
 ![fluid](/img/fluids/Fluid2D.png)
 
-The **Rapier Physics Server** adds **Fluid2D** and **Fluid3D** nodes that make it possible to simulate liquids. Each liquid can have fluid effects, which are resources of type **FluidEffect2D** or **FluidEffect3D**.
+The **Rapier Physics Server** adds **Fluid2D** and **Fluid3D** nodes that make it possible to simulate fluids. Each fluid can have fluid effects, which are resources of type **FluidEffect2D** or **FluidEffect3D**.
 
 ## Fluid Node
 
 In order to simulate a fluid, first create a fluid node. This node has:
-- **debug_draw**: Right now only for 2d, will draw small squares where the fluid particles are.
-- **density**: Defaults to 1, represents how heavy is the liquid.
+- **debug_draw**: Will draw the fluid particles.
+- **density**: Defaults to 1, represents how heavy is the fluid.
 - **lifetime**: Defaults to 0, represents time in seconds the fluid particles should live before they get destroyed. If 0 is disabled.
-- **effects**: The fluid effects. Use these to make either water or goo or elastic liquids.
+- **effects**: The fluid effects. Use these to make either water or goo or elastic fluids.
 - **points**: The fluid particles. These need to be set before the fluid can be simulated.
 
 ## Fluid Effects
@@ -36,15 +36,22 @@ This will make the fluid get attracted to other fluid particles, making surface 
 
 ## Fluid Points
 
-In order to simulate fluids, you need to add points. These can be created with the helper scripts:
+In order to simulate fluids, you need to add points. These can be created with the helper scripts, which you add on the `Fluid` node:
 - `addons/godot-rapier2d/fluid_2d_circle.gd`: Set a radius and it creates fluid particles inside the circle.
 - `addons/godot-rapier2d/fluid_2d_rectangle.gd`: Set a width and height and it creates fluid particles inside the rectangle.
 - `addons/godot-rapier3d/fluid_3d_sphere.gd`: Set a radius and it creates fluid particles inside the sphere.
 - `addons/godot-rapier3d/fluid_3d_box.gd`: Set a width and height and depth and it creates fluid particles inside the box.
 
+
+:::note
+
+In order to see the points, don't forget to activate the **debug_draw** option on the node.
+
+:::
+
 ## Fluid Renderers
 
-In order to render the fluid, you can either use the `debug_draw` feature, or make your own renderer. The way the renderer would work is it gets the points every frame and then draw an object for every point.
+The way the renderer works is it gets the points every frame and then draw an object for every point.
 
 ### Fluid2DRenderer
 
@@ -52,20 +59,22 @@ The most efficient way to render multiple objects is a **MultiMeshInstance2D**. 
 
 ![mesh instance](/img/fluids/mesh_instance.png)
 
-The multimeseh has methods for drawing efficiently:
+The multimesh has methods for drawing efficiently:
 - **multimesh.set_instance_transform_2d(index, new_transform)**
 - **multimesh.set_instance_color(index, color)**
 
-This is what the **Fluid2DRenderer** node does. You assign it a **Fluid2D** node and a **color**, and it then uses the default resources from the addon:
+This is what the **Fluid2DRenderer** node does. You assign it a **Fluid** node and a **Color**, and it then uses the default resources from the addon:
 - **multimesh.mesh**: `res://addons/godot-rapier2d/circle_mesh.tres`
 - **texture** `res://addons/godot-rapier2d/Circle2D.svg`
 
 ![fluid renderer](/img/fluids/fluid_renderer.png)
 
-In case you are using the **Fluid2DRenderer**, don't forget to disable the **debug_draw** of the **Fluid2D** node.
-
 ### Fluid Shader
 
-You might also want to use a shader that renders a liquid instead of a circle. For that you can use the `res://addons/godot-rapier2d/water_shader.gdshader` shader. The idea with this shader is that it draws on a texture the liquid, and then applies some processing over that to remove pixels that aren't close enough.
+If you want more realistic fluid, a shader that renders a fluid instead of a circle will do the job. For that you can use the `res://addons/godot-rapier2d/water_shader.gdshader` shader. The idea with this shader is that it draws on a texture the fluid, and then applies some processing over that to remove pixels that aren't close enough, or draws more where the fluid is closer.
 
-In order to use this shader, first create a **Fluid2DShaderRenderer**. This will create a **Camera2D** as a child of it. This script will take care of copying the camera position and the fluid points.
+In order to use this shader, first create a **Fluid2DShaderRenderer**. This will create all the necesary nodes inside. This script will take care of copying the camera position and the fluid points.
+
+In order to set it up, you need to set the **Fluid** and the **Camera** property. Afterwards, run the program and see the fluid using a shader. Configure the shader by configuring the **Water Material** property.
+
+![water shader](/img/fluids/water_shader.png)
