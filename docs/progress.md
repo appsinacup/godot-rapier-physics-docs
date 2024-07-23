@@ -93,8 +93,9 @@ N/A|✅|Height Map Shape
 
 2D | 3D| Feature
 -|-|-
-🚧 |🚧| Fluid
-🚧 |🚧| FluidEffect
-🚧 |🚧| Serialization
-🚧 |🚧| Deserialization
-🚧 |🚧| Performance Improvement
+✅|✅| Fluid
+✅|✅| FluidEffect
+✅|🚧| Fluid Samples
+✅|✅| Serialization
+🚧|🚧| Deserialization
+🚧|🚧| Performance Improvement
