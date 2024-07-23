@@ -63,3 +63,9 @@ This is what the **Fluid2DRenderer** node does. You assign it a **Fluid2D** node
 ![fluid renderer](/img/fluids/fluid_renderer.png)
 
 In case you are using the **Fluid2DRenderer**, don't forget to disable the **debug_draw** of the **Fluid2D** node.
+
+### Fluid Shader
+
+You might also want to use a shader that renders a liquid instead of a circle. For that you can use the `res://addons/godot-rapier2d/water_shader.gdshader` shader. The idea with this shader is that it draws on a texture the liquid, and then applies some processing over that to remove pixels that aren't close enough.
+
+In order to use this shader, first create a **Fluid2DShaderRenderer**. This will create a **Camera2D** as a child of it. This script will take care of copying the camera position and the fluid points.
