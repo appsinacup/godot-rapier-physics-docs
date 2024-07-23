@@ -4,9 +4,6 @@ sidebar_position: 2
 
 # Fluids
 
-
-![fluid](/img/fluids/Fluid2D.png)
-
 The **Rapier Physics Server** adds **Fluid2D** and **Fluid3D** nodes that make it possible to simulate fluids. Each fluid can have fluid effects, which are resources of type **FluidEffect2D** or **FluidEffect3D**.
 
 ## Fluid Node
@@ -61,6 +58,12 @@ The most efficient way to render multiple objects is a **MultiMeshInstance2D**. 
 
 ### Fluid Shader
 
-If you want more realistic fluid, you ca use the **Fluid2DShaderRenderer**, which uses a shader to draw the fluid. In order to set it up, you need to set the **Fluid** and the **Camera** property. Afterwards, run the program and see the fluid using a shader. Configure the shader by configuring the **Water Material** property.
+If you want more realistic fluid, you can use the **Fluid2DShaderRenderer**, which uses a shader to draw the fluid. In order to set it up, you need to set the **Fluid** and the **Camera** property. Afterwards, run the program and see the fluid using a shader. Configure the shader by configuring the **Water Material** property (eg. you can configure the **Water Texture** property or make a new shader of your own).
 
 ![water shader](/img/fluids/water_shader.png)
+
+:::note
+
+If you don't have a **Camera2D** in the scene, create one.
+
+:::
