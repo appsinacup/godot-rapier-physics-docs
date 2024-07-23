@@ -44,4 +44,22 @@ In order to simulate fluids, you need to add points. These can be created with t
 
 ## Fluid Renderers
 
-TODO
+In order to render the fluid, you can either use the `debug_draw` feature, or make your own renderer. The way the renderer would work is it gets the points every frame and then draw an object for every point.
+
+### Fluid2DRenderer
+
+The most efficient way to render multiple objects is a **MultiMeshInstance2D**. This can be created easily by dragging a texture in the scene and then clicking on the sprite it created and clicking convert to **MeshInstance2D**:
+
+![mesh instance](/img/fluids/mesh_instance.png)
+
+The multimeseh has methods for drawing efficiently:
+- **multimesh.set_instance_transform_2d(index, new_transform)**
+- **multimesh.set_instance_color(index, color)**
+
+This is what the **Fluid2DRenderer** node does. You assign it a **Fluid2D** node and a **color**, and it then uses the default resources from the addon:
+- **multimesh.mesh**: `res://addons/godot-rapier2d/circle_mesh.tres`
+- **texture** `res://addons/godot-rapier2d/Circle2D.svg`
+
+![fluid renderer](/img/fluids/fluid_renderer.png)
+
+In case you are using the **Fluid2DRenderer**, don't forget to disable the **debug_draw** of the **Fluid2D** node.
