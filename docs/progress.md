@@ -19,7 +19,7 @@ This plugin is still being developed. See the tables below to get an idea of wha
 ✅|✅|iOS (arm64)
 ✅|✅|Web (wasm32)
 
-### Builds ✅
+### Builds 🚧
 
 2D | 3D | Feature
 -|-|-
