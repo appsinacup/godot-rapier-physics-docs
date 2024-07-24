@@ -21,5 +21,5 @@ There are some options which can be configured for the Rapier library that chang
   ````
 - **Length Unit 2D**: The approximate size of most dynamic objects in the scene. For 2D it is **100** as gravity in Godot is **980**, and in real life it is **9.8**.
 - **Length Unit 3D**: The approximate size of most dynamic objects in the scene. For 3D it is **1** as gravity in Godot is **9.8**, and in real life it is **9.8**.
-- **Fluid Particle Radius**: The Particle Radius used for each Particle when simulating Fluids.
+- **Fluid Particle Radius**: The Particle Radius used for each Particle when simulating Fluids. For 2D it defaults to **20** and for 3D it defaults to **0.5**
 - **Fluid Smoothing Factor**: The Smoothing Factor used when simulating Fluids.

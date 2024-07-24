@@ -95,7 +95,7 @@ N/A|✅|Height Map Shape
 -|-|-
 ✅|✅| Fluid
 ✅|✅| FluidEffect
-✅|🚧| Fluid Samples
+✅|✅| Fluid Samples
 ✅|✅| Serialization
 🚧|🚧| Deserialization
 🚧|🚧| Inverse Kinematics
