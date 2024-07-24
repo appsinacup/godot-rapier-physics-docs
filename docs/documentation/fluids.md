@@ -17,7 +17,7 @@ In order to simulate a fluid, first create a fluid node. This node has:
 
 ## Fluid Effects
 
-The fluid can simulate elastic, viscous or surface tension.
+The fluid can simulate elastic, viscous or surface tension. Also if it seems that the effect doesn't do much, try changing density of the liquid to 1000 (eg. water density).
 
 ### Fluid Effect Elastic
 
