@@ -50,13 +50,13 @@ In order to see the points, don't forget to activate the **debug_draw** option o
 
 The way the renderer works is it gets the points every frame and then draw an object for every point.
 
-### Fluid2DRenderer
+### Fluid 2D Renderer
 
 The most efficient way to render multiple objects is a **MultiMeshInstance2D**. The **Fluid2DRenderer** node is a high level helper for this. You assign it a **Fluid** node and a **Color**,
 
 ![fluid renderer](/img/fluids/fluid_renderer.png)
 
-### Fluid Shader
+### Fluid 2D Shader
 
 If you want more realistic fluid, you can use the **Fluid2DShaderRenderer**, which uses a shader to draw the fluid. In order to set it up, you need to set the **Fluid** and the **Camera** property. Afterwards, run the program and see the fluid using a shader. Configure the shader by configuring the **Water Material** property (eg. you can configure the **Water Texture** property or make a new shader of your own).
 
@@ -67,3 +67,9 @@ If you want more realistic fluid, you can use the **Fluid2DShaderRenderer**, whi
 If you don't have a **Camera2D** in the scene, create one.
 
 :::
+
+### Fluid 3D Renderer
+
+The most efficient way to render multiple objects is a **MultiMeshInstance3D**. The **Fluid3DRenderer** node is a high level helper for this. You assign it a **Fluid** node.
+
+![fluid_renderer_3d](/img/fluids/fluid_renderer_3d.png)
