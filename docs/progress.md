@@ -19,14 +19,16 @@ This plugin is still being developed. See the tables below to get an idea of wha
 ✅|✅|iOS (arm64)
 ✅|✅|Web (wasm32)
 
-### Builds 🚧
+### Builds ✅
 
 2D | 3D | Feature
 -|-|-
 ✅|✅|Single Build
-🚧|🚧|Double Build
+⌛|⌛|Double Build
 ✅|✅|Cross Platform Deterministic Build
 ✅|✅|Parallel SIMD Build
+
+⌛ - A dependency, salva, used for liquids, doesn't currently support double builds. Will come at a later time.
 
 ### Collision Objects ✅
 
