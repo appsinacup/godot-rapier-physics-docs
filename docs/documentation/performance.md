@@ -23,7 +23,7 @@ PhysicsServer2D:
         let callable = get_state_sync_callback(i);
         callable.call()
 Godot:
-    body_state_update(i):
+    _sync_body_state(i):
         body_get_transform(i)
         body_get_linear_velocity(i)
         body_get_angular_velocity(i)
