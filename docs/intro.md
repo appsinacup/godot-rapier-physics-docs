@@ -22,18 +22,25 @@ Get started by **installing the plugin** and activate the new **Physics Server**
 - [Godot](https://godotengine.org/download/) version 4 or above.
 - **Rapier** plugin from the Godot Asset Library.
 
-:::note
-
-There are 4 versions of the Rapier plugin. One for **2D**, one for **3D**. And for every dimension there is one for **cross platform determinism** and one with **parallel and SIMD** feature. If in doubt use the **parallel and SIMD** one as it's going to be faster.
-
-:::
-
-
 ## Install the plugin
 
 First create a new **Godot Project**. Next click on the **AssetLib** tab and search for the **Rapier** addon and click on the version you want.
 
 ![installing the plugin](/img/intro/install-addon.png)
+
+:::note
+
+There are 4 versions of the Rapier plugin. One for **2D**, one for **3D**.
+
+For every dimension there is:
+- a **faster** version with **parallel SIMD** feature
+- a **slower** version with **cross platform determinism**.
+
+The **parallel SIMD** one uses **parallel solving** and **Single instruction, multiple data** (batches multiple instructions into one for faster calculations).
+
+The **cross platform determinism** version supports determistic simulations accross multiple sytems, but has **NO parallel and NO SIMD** features.
+
+:::
 
 Then click **Download**.
 
