@@ -7,6 +7,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import animation from '/static/img/rapier-vid.gif'
+import ghost from '/static/img/ghost_collisions.gif'
 import fluid from '/static/img/fluid_shader.gif'
 import banner from '/static/img/rapier_banner.jpg'
 
@@ -44,6 +45,17 @@ function HomepageHeader() {
               }}
             />
             <img
+              src={ghost}
+              alt="loading..."
+              height={160}
+              style={{
+                "border-top-right-radius": "5px",
+                "border-bottom-right-radius": "5px",
+                borderRadius: '10px',
+                border: 'solid 4px black',
+              }}
+            />
+            <img
               src={fluid}
               alt="loading..."
               height={160}
@@ -73,7 +85,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Rapier Physics addon for Godot that a new physics server for 2D or 3D with better stability.">
+      description="Rapier Physics addon for Godot that a new physics server for 2D or 3D with better stability, performance, no ghost collisions and liquids.">
       <HomepageHeader />
 
       <main>
