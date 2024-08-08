@@ -6,12 +6,9 @@ sidebar_position: 7
 
 ## Common Pitfalls
 
-If the performance you are getting is not what you are expecting, first thing to do is to see what the bottleneck is, by using the **Godot Monitors** tool from **Debugger** -> **Monitors**:
+If the performance you are getting is not what you are expecting, first thing to do is to see what the bottleneck is, by using the **Godot Monitors** tool from **Debugger** -> **Monitors** and check if the **Physics Process** time is high:
 
 ![monitors](/img/performance/monitors.png)
-
-If the **Physics Process** is the bottleneck, then continue reading.
-
 
 ## Benchmark
 
@@ -21,6 +18,12 @@ Shape|Dimensions|Godot 4.3 beta|Rapier|Rapier without state_sync_callback|[Box2D
 -|-|-|-|-|-|-
 Circle + Rectangle|2D|2900|5000|7800|3000|N/A
 Sphere + Box|3D|1500|2500|4500|N/A|5000
+
+:::note
+
+Rapier Physics Server gets a lot more performance with the **state_sync_callback** disabled for RigidBodies. Read more below to find out more.
+
+:::
 
 ## Extra Performance
 
@@ -41,13 +44,16 @@ A big optimization that can be made is to look at the **PhysicsServer** as a dat
 RapierPhysicsServer.body_set_state_sync_callback(body_rid, Callable())
 ```
 
-If you do the above thing for some objects, these objects will no longer receive any updates from the physics server. But you will be able to do a lot more simulated objects.
+If you do the above thing for some objects, these objects will no longer receive active event updates from the physics server (eg. the physics node will stay in place on godot side). But you will be able to do a lot more simulated objects.
 
-Now you might be asking, how to get the position in a more efficient manner? For this the **RapierPhysicsServer** offers the following function:
+In order to then get the transform of all the objects that were active, the **RapierPhysicsServer** offers the following function:
 
 ```js
-var body_rids: Array = RapierPhysicsServer.space_get_active_bodies(space_rid)
-var body_positions: PackedVectorArray = RapierPhysicsServer.space_get_bodies_positions(body_rids)
+var body_rids: Array = RapierPhysicsServer2D.space_get_active_bodies(space_rid)
+var body_transforms: Array[Transform2D] = RapierPhysicsServer2D.space_get_bodies_positions(body_rids)
+#or
+var body_rids: Array = RapierPhysicsServer3D.space_get_active_bodies(space_rid)
+var body_transforms: Array[Transform3D] = RapierPhysicsServer3D.space_get_bodies_positions(body_rids)
 ```
 
 In order to render the objects, you can use a **MultiMeshInstance**, like so:
