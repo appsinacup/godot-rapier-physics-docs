@@ -19,6 +19,11 @@ In order to simulate a fluid, first create a fluid node. This node has:
 - **effects**: The fluid effects. Use these to make either water or goo or elastic fluids.
 - **points**: The fluid particles. These need to be set before the fluid can be simulated.
 
+## Fluid Particle Size
+
+The fluid particle size is set in the **Project Settings**:
+- `physics/rapier/fluid/fluid_particle_radius`
+
 ## Fluid Effects
 
 The fluid can simulate elastic, viscous or surface tension. Also if it seems that the effect doesn't do much, try changing density of the liquid to 1000 (eg. water density).
