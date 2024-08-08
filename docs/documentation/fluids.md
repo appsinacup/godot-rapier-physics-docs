@@ -6,6 +6,10 @@ sidebar_position: 2
 
 The **Rapier Physics Server** adds **Fluid2D** and **Fluid3D** nodes that make it possible to simulate fluids. Each fluid can have fluid effects, which are resources of type **FluidEffect2D** or **FluidEffect3D**.
 
+Fluid2D| Fluid3D
+-|-
+![fluid shader](/img/fluid_shader.gif)|![fluid 3d](/img/water_3d.gif)
+
 ## Fluid Node
 
 In order to simulate a fluid, first create a fluid node. This node has:
