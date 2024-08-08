@@ -9,6 +9,7 @@ import styles from './index.module.css';
 import animation from '/static/img/rapier-vid.gif'
 import ghost from '/static/img/ghost_collisions.gif'
 import fluid from '/static/img/fluid_shader.gif'
+import fluid3d from '/static/img/water_3d.gif'
 import banner from '/static/img/rapier_banner.jpg'
 
 function HomepageHeader() {
@@ -57,6 +58,17 @@ function HomepageHeader() {
             />
             <img
               src={fluid}
+              alt="loading..."
+              height={160}
+              style={{
+                "border-top-right-radius": "5px",
+                "border-bottom-right-radius": "5px",
+                borderRadius: '10px',
+                border: 'solid 4px black',
+              }}
+            />
+            <img
+              src={fluid3d}
               alt="loading..."
               height={160}
               style={{
