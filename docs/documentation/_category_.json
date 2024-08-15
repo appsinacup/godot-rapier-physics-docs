@@ -1,6 +1,7 @@
 {
     "label": "Documentation",
     "position": 2,
+    "collapsed": false,
     "link": {
       "type": "generated-index",
       "description": "Learn more about physics engines from Godot and what features they have."

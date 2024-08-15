@@ -1,6 +1,7 @@
 {
     "label": "Tutorial",
     "position": 2,
+    "collapsed": false,
     "link": {
       "type": "generated-index",
       "description": "Guided tutorial on how to use Rapier."
