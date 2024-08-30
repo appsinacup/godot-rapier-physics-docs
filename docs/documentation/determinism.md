@@ -12,6 +12,21 @@ Determinism means that if the inputs of the system and the outputs of the system
 
 In order to re-run a deterministic simulation, you have to have exactly the same input conditions. It's not enough to set the positions or velocities of the objects to where the objects were intially (it might look like the world inputs are the objects positions, but there are more hidden inputs too. In order to see the state of the world, use serialization functions on the space). In order to have the exact same conditions, you can reload the scene using `get_tree().reload_current_scene()`
 
+## Manual stepping
+
+Rapier exposes 2 functions for manual stepping:
+
+- `RapierPhysicsServer2/3D.space_step(space, delta)`
+- `RapierPhysicsServer2/3D.space_flush_queries(space)`
+
+Also, if you don't want the physics space to auto step, you can use:
+
+- `PhysicsServer2/3D.space_set_active(space, false)`
+
+In order to get the current space rid, use:
+
+- `get_viewport().world_2/3d.space`
+
 ## Components
 
 The Godot Rapier addon interacts with the following:
