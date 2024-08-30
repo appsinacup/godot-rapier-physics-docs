@@ -14,9 +14,9 @@ There are 2 things implemented to fix ghost collisions.
 
 2. The second one fixes the normals of polygons that have information about points nearby, follows an idea similar to this [box2D Ghost Collisions](https://box2d.org/posts/2020/06/ghost-collisions/) (right now it's implemented just for 3D though).
 
-## 1. Ghost Collisions Fix
+## Ghost Collisions Fix in modify_contacts
 
-The fix is to disable the contacts in the [PhysicsHooks::modify_solver_contacts](https://rapier.rs/docs/user_guides/rust/advanced_collision_detection/#contact-modification) event if:
+The first fix is to disable the contacts in the [PhysicsHooks::modify_solver_contacts](https://rapier.rs/docs/user_guides/rust/advanced_collision_detection/#contact-modification) event if:
 
 1. The contact normal opposes the player’s velocity (which could cause the player to get caught).
 2. The contact distance is smaller than the `physics/rapier/logic/ghost_collision_distance` project setting value. (Note, here we are also taking the velocity in consideration)

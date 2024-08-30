@@ -58,6 +58,15 @@ const FeatureList = [
       </>
     ),
   },
+  {
+    title: 'Forever free and Open-Source',
+    Svg: require('@site/static/img/undraw_freelancer_re_irh4.svg').default,
+    description: (
+      <>
+        Built with a FOSS mindset, we aim to empower the Rust and Godot communities with an efficient physics simulation framework.
+      </>
+    ),
+  },
 ];
 
 function Feature({Svg, title, description}) {
