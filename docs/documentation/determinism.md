@@ -25,7 +25,7 @@ Also, if you don't want the physics space to auto step, you can use:
 
 In order to get the current space rid, use:
 
-- `get_viewport().world_2/3d.space`
+- `var space := get_viewport().world_2/3d.space`
 
 ## Components
 
