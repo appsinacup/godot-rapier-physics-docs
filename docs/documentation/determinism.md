@@ -27,6 +27,10 @@ In order to get the current space rid, use:
 
 - `var space := get_viewport().world_2/3d.space`
 
+In order to get the **fixed delta** your project uses:
+
+- `var fixed_delta = 1.0 / ProjectSettings.get_setting("physics/common/physics_ticks_per_second")`
+
 ## Components
 
 The Godot Rapier addon interacts with the following:
