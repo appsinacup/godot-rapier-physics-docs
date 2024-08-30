@@ -4,11 +4,11 @@ sidebar_position: 1
 
 # Physics Engine
 
-In Godot a Physics Engine is a system that offers **Spaces**, **Areas**, **Static Bodies**, **Rigid Bodies**, **Shapes**, **Joints** and **Character Controllers**. Godot offers the option for these systems (both 2D and 3D) to be replaced by custom implementations. All that is required is to implement a set of about 100+ API's:
+The Physics Engine is a system that offers **Spaces**, **Areas**, **Static Bodies**, **Rigid Bodies**, **Shapes**, **Joints** and **Character Controllers**:
 - [PhysicsServer2D](https://docs.godotengine.org/en/stable/classes/class_physicsserver2dextension.html#class-physicsserver2dextension)
 - [PhysicsServer3D](https://docs.godotengine.org/en/stable/classes/class_physicsserver3dextension.html#class-physicsserver3dextension)
 
-This is exactly what the Rapier Physics Server does. The hierarchy of these objects looks like this:
+The hierarchy of these objects looks like this:
 
 - **Space**: contains
   - **Rigidbodies**: can contain
@@ -18,8 +18,5 @@ This is exactly what the Rapier Physics Server does. The hierarchy of these obje
   - **Joints**
   - **Character Controllers**: can contain
     - **Shapes**
+  - **Fluid**
 
-This plugin gives the option to **serialize** and **deserialize** these structures, as well as adds a new node that integrate with the existing physics concepts:
-
-- **Space** contains
-  - **Fluid**: interacts with all other physics objects

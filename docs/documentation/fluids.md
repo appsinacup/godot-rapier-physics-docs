@@ -4,7 +4,8 @@ sidebar_position: 2
 
 # Fluids
 
-The **Rapier Physics Server** adds **Fluid2D** and **Fluid3D** nodes that make it possible to simulate fluids. Each fluid can have fluid effects, which are resources of type **FluidEffect2D** or **FluidEffect3D**.
+The **Rapier Physics Server** adds **Fluid2D** and **Fluid3D** nodes that make it possible to simulate fluids.
+Each fluid can have fluid effects, which are resources of type **FluidEffect2D** or **FluidEffect3D**.
 
 Fluid2D| Fluid3D
 -|-
@@ -13,11 +14,11 @@ Fluid2D| Fluid3D
 ## Fluid Node
 
 In order to simulate a fluid, first create a fluid node. This node has:
-- **debug_draw**: Will draw the fluid particles.
+- **debug_draw**: Defaults to false.
 - **density**: Defaults to 1, represents how heavy is the fluid.
-- **lifetime**: Defaults to 0, represents time in seconds the fluid particles should live before they get destroyed. If 0 is disabled.
-- **effects**: The fluid effects. Use these to make either water or goo or elastic fluids.
-- **points**: The fluid particles. These need to be set before the fluid can be simulated.
+- **lifetime**: Defaults to 0 (disabled), represents the time before the particles get destroyed.
+- **effects**: The fluid effects to make either water or goo or elastic fluids.
+- **points**: The fluid particles that make the fluid.
 
 ## Fluid Particle Size
 
@@ -54,6 +55,8 @@ In order to simulate fluids, you need to add points. These can be created with t
 In order to see the points, don't forget to activate the **debug_draw** option on the node.
 
 :::
+
+You can also simulate a faucet (that creates continuously fluid points), use the `addons/godot-rapier2d/faucet_2d.gd` or `addons/godot-rapier3d/faucet_3d.gd` class.
 
 ## Fluid Renderers
 
