@@ -31,6 +31,23 @@ In order to get the **fixed delta** your project uses:
 
 - `var fixed_delta = 1.0 / ProjectSettings.get_setting("physics/common/physics_ticks_per_second")`
 
+Example script:
+
+```swift
+extends Node2D
+
+func _ready() -> void:
+	var space := get_viewport().world_2d.space
+	PhysicsServer2D.space_set_active(space, false)
+
+func _on_button_pressed() -> void:
+	var space := get_viewport().world_2d.space
+	var fixed_delta = 1.0 / ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
+	for i in 10:
+		RapierPhysicsServer2D.space_step(space, fixed_delta)
+	RapierPhysicsServer2D.space_flush_queries(space)
+```
+
 ## Components
 
 The Godot Rapier addon interacts with the following:
