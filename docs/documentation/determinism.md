@@ -4,7 +4,17 @@ sidebar_position: 7
 
 # Determinism
 
-The Godot Rapier addon is interacts with the following:
+This plugin is deterministic in all variants, even the faster variant. Determinism here means that if the exact same initial conditions are met, the simulation will be exactly the same.
+
+Determinism means that if the inputs of the system and the outputs of the system are the same, the simulation has to be exactly the same. Imagine you have a system with inputs I1, I2, I3, and outputs O1, O2, O3. Running the simulation for T seconds with inputs I1..3 will result in outputs O1..3.
+
+## Re-running a deterministic simulation
+
+In order to re-run a deterministic simulation, you have to have exactly the same input conditions. It's not enough to set the positions or velocities of the objects to where the objects were intially (it might look like the world inputs are the objects positions, but there are more hidden inputs too. In order to see the state of the world, use serialization functions on the space). In order to have the exact same conditions, you can reload the scene using `get_tree().reload_current_scene()`
+
+## Components
+
+The Godot Rapier addon interacts with the following:
 
 - Godot: The Scene Tree containing nodes
 - Rapier Wrapper: The glue code written that interacts with Godot and Rapier Library
