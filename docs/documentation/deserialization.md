@@ -6,6 +6,12 @@ sidebar_position: 5
 
 Deserializing can be useful to reload the exact state the world was left in previously.
 
+:::note
+
+This feature is not yet implemented. It's still being worked on.
+
+:::
+
 ## Space Deserialization
 
 Spaces contain most of the data. Other objects contain references to the internal data that spaces have.

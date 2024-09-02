@@ -18,5 +18,22 @@ The hierarchy of these objects looks like this:
   - **Joints**
   - **Character Controllers**: can contain
     - **Shapes**
-  - **Fluid**
+  - **Fluid**: new concept added by this plugin
 
+## Space
+
+The space holds stateless data about the godot space, **stateful data** and a **handle** for the **rapier space**. The stateless data can be changed through Godot API.
+
+### Space State
+
+Holds state that related to statistics, scheduled update lists and removed colliders. The scheduled lists contain things such as gravity updates for rigidbodies or callback updates or area monitor updates. The removed colliders use RID internally, and that one cannot be serialized.
+
+### Space Handle
+
+A handle that points to the internal Rapier Space. The handle is created once the space is created and doesn't change after. The handle points to the rapier space.
+
+### Rapier Space
+
+This is the internal data used by Rapier to simulate the space. This contains everything else simulated, from shapes to rigidbodies and joints.
+
+WIP
