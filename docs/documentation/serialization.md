@@ -78,35 +78,9 @@ var exported_json: String = RapierPhysicsServer3D.collision_object_export_json(b
 
 In order to get the **body_rid**, call the `get_rid()` method on the Collision Object.
 
-## Joint Serialization
+## Joint and Shapes Serialization
 
-A Joint object refers to a Godot Joint. This has a reference to a handle that maps to a Rapier Joint. That one is stored on the Space.
-
-```js
-var exported_json: String = RapierPhysicsServer2D.joint_export_json(joint_rid)
-# or
-var exported_json: String = RapierPhysicsServer3D.joint_export_json(joint_rid)
-```
-
-In order to get the **joint_rid**, call the `get_rid()` method on the Collision Object.
-
-## Shape Serialization
-
-A Shape object refers to a Godot Shape. This has a reference to a handle that maps to a Rapier Collider. That one is stored on the Space.
-
-```js
-var exported_json: String = RapierPhysicsServer2D.shape_export_json(joint_rid)
-# or
-var exported_json: String = RapierPhysicsServer3D.shape_export_json(joint_rid)
-```
-
-In order to get the **shape_rid**, call the `get_rid()` method on the Collision Object.
-
-:::note
-
-A Shape can map to 0 or 1 or many Rapier Colliders. This is because in Godot, a shape can either be used reused for multiple RigidBodies, or can be used just for Physics Queries.
-
-:::
+Joints and shapes don't hold state, aside for the handle, used to point to the rapier joint and shapes.
 
 ## Serialize All Objects
 
