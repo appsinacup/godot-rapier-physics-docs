@@ -55,6 +55,12 @@ The space holds data about:
 - **stateful data** about statistics, scheduled update lists and removed colliders. The scheduled lists contain things such as gravity updates for rigid bodies or callback updates or area monitor updates. The removed colliders use RID internally, and that one cannot be serialized.
 - handle that points to a **inner rapier space**. This is the internal data used by Rapier to simulate the space.
 
+:::note
+
+The **inner rapier space** also contains the rigid bodies, joints and colliders.
+
+:::
+
 ## RigidBody / Area / CharacterController
 
 The bodies hold data about:
