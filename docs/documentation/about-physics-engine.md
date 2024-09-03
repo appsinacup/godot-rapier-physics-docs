@@ -10,30 +10,71 @@ The Physics Engine is a system that offers **Spaces**, **Areas**, **Static Bodie
 
 The hierarchy of these objects looks like this:
 
-- **Space**: contains
-  - **Rigidbodies**: can contain
-    - **Shapes**
+- **Space**: can contain
+  - **RigidBodies**: can contain
+    - **ShapeInstances**
   - **Areas**: can contain
-    - **Shapes**
-  - **Joints**
+    - **ShapeInstances**
   - **Character Controllers**: can contain
-    - **Shapes**
+    - **ShapeInstances**
+  - **Joints**
   - **Fluid**: new concept added by this plugin
+- **Shapes**
+
+:::note
+
+**RigidBodies/Areas/Character Controllers** can be outside of any space (during initialization time).
+
+**Joints** can also be outside of any space (empty joints).
+
+**Shapes** are always outside of spaces, but shape instances (or colliders) are bound to bodies. (because shapes can be shared between bodies)
+
+Objects without space are a temporary thing and usually done only during initialization.
+
+:::
+
+All these objects have some internal **state**, and they then also have a **handle** for a Rapier Object.
+
+## Rapier
+
+Rapier is a physics system that has some concepts that can be mapped to the Physics Engine:
+
+- **World**: contains
+  - **RigidBodies**: contain
+    - **Colliders**
+  - **ImpulseJoints**
+  - **MultiBodyJoints**
+- **FluidWorld**: contains
+  - **Fluids**
+- **Shapes**
 
 ## Space
 
-The space holds stateless data about the godot space, **stateful data** and a **handle** for the **rapier space**. The stateless data can be changed through Godot API.
+The space holds data about:
+- **stateless data** about the godot space.
+- **stateful data** about statistics, scheduled update lists and removed colliders. The scheduled lists contain things such as gravity updates for rigid bodies or callback updates or area monitor updates. The removed colliders use RID internally, and that one cannot be serialized.
+- handle that points to a **inner rapier space**. This is the internal data used by Rapier to simulate the space.
 
-### Space State
+## RigidBody / Area / CharacterController
 
-Holds state that related to statistics, scheduled update lists and removed colliders. The scheduled lists contain things such as gravity updates for rigidbodies or callback updates or area monitor updates. The removed colliders use RID internally, and that one cannot be serialized.
+The bodies hold data about:
+- **stateless data** about the godot bodies.
+- **stateful data** about detected bodies, computed mass, etc.
+- handle that points to a **inner rapier rigid body**. This is the internal data used by Rapier to simulate the body.
 
-### Space Handle
+## Joint
 
-A handle that points to the internal Rapier Space. The handle is created once the space is created and doesn't change after. The handle points to the rapier space.
+The joints hold data about:
+- **stateless data** about the godot joints.
+- handle that points to a **inner rapier joint**. This is the internal data used by Rapier to simulate the joint. This can be either a **impulse joint** or a **multi body joint**.
 
-### Rapier Space
+## Shape
 
-This is the internal data used by Rapier to simulate the space. This contains everything else simulated, from shapes to rigidbodies and joints.
+The shapes hold data about:
+- **stateless data** about the godot shapes.
+- **stateful data** about owners, aabb, etc.
+- handle that points to a **inner rapier shape**. This is the internal data used by Rapier to create colliders.
 
-WIP
+## Colliders
+
+The colliders are shapes created on bodies. Bodies and shapes hold the handle that points to a **inner rapier collider**.
