@@ -11,7 +11,7 @@ There are some options which can be configured for the Rapier library that chang
 - **Num Internal Pgs Iterations**: Number of internal Project Gauss Seidel (PGS) iterations run at each solver iteration.
 - **Num Additional Friction Iterations**: Number of addition friction resolution iteration run during the last solver sub-step.
 - **Num Iterations**:  The number of solver iterations run by the constraints solver for calculating forces
-- **Max Ccd Substeps**: Maximum number of substeps performed by the solver.
+- **Max Ccd Sub Steps**: Maximum number of sub steps performed by the solver.
 - **Contact Skin**: A skin that is added to each shape. This can also be added individually to bodies by calling:
   ```js
   var contact_skin = 0.1 # Any value

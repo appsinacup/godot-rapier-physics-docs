@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Ghost Collisions
 
-Ghost Collisions are collisions that stop objects from moving when intersecting with a static object made out of multiple pieces of geometry (tilesets, polygon).
+Ghost Collisions are collisions that stop objects from moving when intersecting with a static object made out of multiple pieces of geometry (tile sets, polygon).
 
 ![ghost collisions](/img/ghost_collisions.gif)
 

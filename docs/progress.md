@@ -89,7 +89,7 @@ N/A|✅|Height Map Shape
 
 ### Misc
 
-- No support for asymetric collisions (eg. object 1 hitting object 2 but object 2 not hitting object 1). This is the exact check rapier does: `(A.layer & B.mask) != 0 || (B.layer & A.mask) != 0`
+- No support for asymmetric collisions (eg. object 1 hitting object 2 but object 2 not hitting object 1). This is the exact check rapier does: `(A.layer & B.mask) != 0 || (B.layer & A.mask) != 0`
 
 ## New Features 🚧
 
@@ -101,5 +101,5 @@ N/A|✅|Height Map Shape
 ✅|✅| Serialization
 🚧|🚧| Deserialization
 🚧|🚧| Inverse Kinematics
-🚧|🚧| Multibody Joints
+🚧|🚧| MultiBody Joints
 🚧|🚧| Performance Improvement

@@ -38,7 +38,7 @@ For every dimension there is:
 
 The **parallel SIMD** one uses **parallel solving** and **Single instruction, multiple data** (batches multiple instructions into one for faster calculations).
 
-The **cross platform determinism** version supports determistic simulations accross multiple sytems, but has **NO parallel and NO SIMD** features.
+The **cross platform determinism** version supports determistic simulations across multiple systems, but has **NO parallel and NO SIMD** features.
 
 :::
 

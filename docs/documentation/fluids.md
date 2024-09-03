@@ -31,7 +31,7 @@ The fluid can simulate elastic, viscous or surface tension. Also if it seems tha
 
 ### Fluid Effect Elastic
 
-The elastic fluid effect will keep the fluid close togheter.
+The elastic fluid effect will keep the fluid close together.
 
 ### Fluid Effect Viscous
 

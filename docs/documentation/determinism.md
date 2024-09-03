@@ -10,7 +10,7 @@ Determinism means that if the inputs of the system and the outputs of the system
 
 ## Re-running a deterministic simulation
 
-In order to re-run a deterministic simulation, you have to have exactly the same input conditions. It's not enough to set the positions or velocities of the objects to where the objects were intially (it might look like the world inputs are the objects positions, but there are more hidden inputs too. In order to see the state of the world, use serialization functions on the space). In order to have the exact same conditions, you can reload the scene using `get_tree().reload_current_scene()`
+In order to re-run a deterministic simulation, you have to have exactly the same input conditions. It's not enough to set the positions or velocities of the objects to where the objects were initially (it might look like the world inputs are the objects positions, but there are more hidden inputs too. In order to see the state of the world, use serialization functions on the space). In order to have the exact same conditions, you can reload the scene using `get_tree().reload_current_scene()`
 
 ## Manual stepping
 
@@ -63,7 +63,7 @@ The Godot element is non deterministic. If:
 - Animations
 - Scripting logic
 
-Is used to interact with the physics server, that could be a source of creating undeterministm.
+Is used to interact with the physics server, that could be a source of creating un-determinism.
 
 ## Rapier Wrapper
 

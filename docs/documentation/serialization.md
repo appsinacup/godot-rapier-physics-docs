@@ -68,7 +68,7 @@ A Collision Object inside the wrapper refers to either a:
 - StaticBody
 - CharacterBody
 
-This serializes the data a Rigidbody structure has in Godot. This does not save the actual Rigidbody Rapier uses, that is stored in the Space serialization. This just stores a handle to that.
+This serializes the data a RigidBody structure has in Godot. This does not save the actual RigidBody Rapier uses, that is stored in the Space serialization. This just stores a handle to that.
 
 ```js
 var exported_json: String = RapierPhysicsServer2D.collision_object_export_json(body_rid)
@@ -88,6 +88,6 @@ It is also possible to get all the objects inside the Physics Server of a specif
 
 ```js
 var collision_objects_json: String = RapierPhysicsServer2D.collision_objects_export_json()
-var jointss_json: String = RapierPhysicsServer2D.joints_export_json()
+var joints_json: String = RapierPhysicsServer2D.joints_export_json()
 var shapes_json: String = RapierPhysicsServer2D.shapes_export_json()
 ```

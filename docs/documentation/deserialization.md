@@ -27,7 +27,7 @@ RapierPhysicsServer3D.space_import_binary(space_rid, exported_binary)
 
 :::note
 
-Loading the state right now loads everything the same way as it was before. This will not work right now with some of the objects(eg. Rid's, Callables, etc.). More info on this will be added here soon.
+Loading the state right now loads everything the same way as it was before. This will not work right now with some of the objects(eg. Rid's, Callable, etc.). More info on this will be added here soon.
 
 :::
 
@@ -79,7 +79,7 @@ It is also possible to get all the objects inside the Physics Server of a specif
 
 ```js
 var collision_objects_json = RapierPhysicsServer2D.collision_objects_import_json()
-var jointss_json = RapierPhysicsServer2D.joints_import_json()
+var joints_json = RapierPhysicsServer2D.joints_import_json()
 var shapes_json = RapierPhysicsServer2D.shapes_import_json()
 ```
 
