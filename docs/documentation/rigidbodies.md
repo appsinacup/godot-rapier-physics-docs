@@ -2,7 +2,11 @@
 sidebar_position: 3
 ---
 
-# Ghost Collisions
+# Rigid Bodies
+
+Configuring rigid bodies can be difficult. This page describes some of the most common configurations.
+
+## Ghost Collisions
 
 Ghost Collisions are collisions that stop objects from moving when intersecting with a static object made out of multiple pieces of geometry (tile sets, polygon).
 
@@ -14,7 +18,7 @@ There are 2 things implemented to fix ghost collisions.
 
 2. The second one fixes the normals of polygons that have information about points nearby, follows an idea similar to this [box2D Ghost Collisions](https://box2d.org/posts/2020/06/ghost-collisions/) (right now it's implemented just for 3D though).
 
-## Ghost Collisions Fix in modify_contacts
+### Ghost Collisions Fix in modify_contacts
 
 The first fix is to disable the contacts in the [PhysicsHooks::modify_solver_contacts](https://rapier.rs/docs/user_guides/rust/advanced_collision_detection/#contact-modification) event if:
 
@@ -23,6 +27,10 @@ The first fix is to disable the contacts in the [PhysicsHooks::modify_solver_con
 
 In order to activate it set `physics/rapier/logic/ghost_collision_distance` to `1.0` or something bigger.
 
-## Side Effects
+### Ghost Collisions Side Effects
 
 The side effects of this solution is that objects might pass through each other a bit. If this is not intended you can disable it by setting the `ghost_collision_distance` to 0.
+
+## Continuous Collision Detection
+
+Fast moving rigid bodies might pass through other rigid bodies, unless the **Continuous Collision Detection** is active. However, even then, it will only do 1 extra step. For multiple extra steps, configure the project setting **Max Ccd Sub Steps**: Maximum number of sub steps performed by the solver. By default it's set to 1.
