@@ -34,3 +34,11 @@ The side effects of this solution is that objects might pass through each other 
 ## Continuous Collision Detection
 
 Fast moving rigid bodies might pass through other rigid bodies, unless the **Continuous Collision Detection** is active. However, even then, it will only do 1 extra step. For multiple extra steps, configure the project setting **Max Ccd Sub Steps**: Maximum number of sub steps performed by the solver. By default it's set to 1.
+
+## Shapes getting stuck inside
+
+In some cases, objects might get stuck inside polygons. This happens because of the physics engine trying to push the object right and left and it ends up in same position always. A great read about this is the [Stuck Inside](https://box2d.org/posts/2020/04/stuck-inside/) article from box2d.
+
+![ghost collisions](/img/rigidbodies/stuck.png)
+
+In order to solve this, change the polygon to be formed of Segments instead of Solids, or change the Static Body polygon Radius (`RapierPhysicsServer2D.body_set_extra_param(self.get_rid(), 0, 1.0)`) so that the small objects cannot get inside.
