@@ -99,7 +99,7 @@ N/A|✅|Height Map Shape
 ✅|✅| FluidEffect
 ✅|✅| Fluid Samples
 ✅|✅| Serialization
-🚧|🚧| Deserialization
+✅|✅| Deserialization
 🚧|🚧| Inverse Kinematics
 🚧|🚧| MultiBody Joints
 🚧|🚧| Performance Improvement
