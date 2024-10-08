@@ -4,13 +4,13 @@ sidebar_position: 5
 
 # Deserialization
 
-Deserializing can be useful to reload the exact state the world was left in previously.
+Deserializing can be useful to reload the exact state the world was left in previously. Similar to serialization functions, there is function that deserializes, but only from binary:
 
-:::note
+```js
+RapierPhysicsServer.import_binary(rid)
+```
 
-This feature is not yet implemented. It's still being worked on.
-
-:::
+Note that you will need the rid of the object. This can be simple to do if you don't reload the scene, but if you do, then you need to do a mapping to know what object corresponds to what physics object. The reason is that the rid changes between runs. In order to figure out what rid the new object has, use the path of the object as unique proerty.
 
 ## Space Deserialization
 
