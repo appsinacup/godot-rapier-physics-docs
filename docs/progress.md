@@ -2,9 +2,9 @@
 sidebar_position: 4
 ---
 
-# Implementation Progress
+# Feature List (Updated Nov 2025)
 
-This plugin is still being developed. See the tables below to get an idea of what status it is in.
+ See the tables below to get an idea of what status it is in.
 
 ## Godot Features
 
@@ -24,11 +24,14 @@ This plugin is still being developed. See the tables below to get an idea of wha
 2D | 3D | Feature
 -|-|-
 ✅|✅|Single Build
-⌛|⌛|Double Build
 ✅|✅|Cross Platform Deterministic Build
 ✅|✅|Parallel SIMD Build
 
-⌛ - A dependency, salva, used for liquids, doesn't currently support double builds. Will come at a later time.
+:::note
+
+If you want custom double builds, that is currently not supported. A dependency, salva, used for liquids, doesn't currently support double builds. Will come at a later time.
+
+:::
 
 ### Collision Objects ✅
 
@@ -43,7 +46,7 @@ N/A | ❌ | SoftBody
 
 ❌ - Not implemented in Rapier Lib
 
-### Joints 🚧
+### Joints
 
 2D | Joint
 -|-
@@ -53,11 +56,11 @@ N/A | ❌ | SoftBody
 
 3D | Joint
 -|-
-🚧 | Cone Twist Joint 3D
-🚧 | Generic 6 DOF Joint 3D
-🚧 | Hinge Joint 3D
+✅ | Cone Twist Joint 3D
+✅ | Generic 6 DOF Joint 3D
+⌛ | Hinge Joint 3D
 ✅ | Pin Join 3D
-🚧 | Slider Joint 3D
+✅ | Slider Joint 3D
 
 ### Shapes ✅
 
@@ -74,7 +77,7 @@ N/A|✅|Height Map Shape
 ✅|✅|Convex Polygon Shape
 ✅|✅|Concave Polygon Shape
 
-⌛ - Delayed, will implement at a later time
+⌛ - If anyone asks for it on discord, will implement it. Right now no one uses this.
 
 ### Queries ✅
 
@@ -91,7 +94,7 @@ N/A|✅|Height Map Shape
 
 - No support for asymmetric collisions (eg. object 1 hitting object 2 but object 2 not hitting object 1). This is the exact check rapier does: `(A.layer & B.mask) != 0 || (B.layer & A.mask) != 0`
 
-## New Features 🚧
+## New Features
 
 2D | 3D| Feature
 -|-|-
@@ -100,6 +103,6 @@ N/A|✅|Height Map Shape
 ✅|✅| Fluid Samples
 ✅|✅| Serialization
 ✅|✅| Deserialization
-🚧|🚧| Inverse Kinematics
-🚧|🚧| MultiBody Joints
-🚧|🚧| Performance Improvement
+⌛|⌛| Inverse Kinematics
+⌛|⌛| MultiBody Joints
+⌛|⌛| Performance Improvement
