@@ -9,7 +9,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Godot Rapier Physics',
-  tagline: '2D and 3D Physics Plugin for Godot 4 with better stability, performance, no ghost collisions and liquids',
+  tagline: '2D and 3D Physics Plugin for Godot 4 with better stability, performance, no ghost collisions, liquids and determinism',
   favicon: 'img/rapier.jpg',
 
   // Set the production url of your site here
@@ -42,6 +42,21 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
         },
+        blog: {
+          showReadingTime: true,
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Appsinacup, Inc.`,
+            createFeedItems: async (params) => {
+              const {blogPosts, defaultCreateFeedItems, ...rest} = params;
+              return defaultCreateFeedItems({
+                // keep only the 10 most recent blog posts in the feed
+                blogPosts: blogPosts.filter((item, index) => index < 10),
+                ...rest,
+              });
+            },
+          },
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -66,6 +81,7 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
+          {to: '/blog', label: 'Updates', position: 'left'},
           {
             href: 'https://github.com/sponsors/appsinacup',
             label: 'Donate',
