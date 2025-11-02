@@ -4,13 +4,15 @@ sidebar_position: 7
 
 # Determinism
 
-This plugin is deterministic in all variants, even the faster variant. Determinism here means that if the exact same initial conditions are met, the simulation will be exactly the same.
+This plugin is deterministic in all variants, even the faster variant. Determinism here means that if the exact same initial conditions are met, the simulation will be exactly the same (in the Physics Server).
 
 Determinism means that if the inputs of the system and the outputs of the system are the same, the simulation has to be exactly the same. Imagine you have a system with inputs I1, I2, I3, and outputs O1, O2, O3. Running the simulation for T seconds with inputs I1..3 will result in outputs O1..3.
 
+Aside for the Physics Server, another system that interacts in Godot is the Scene Tree and the Rendering System. These also have states that are not deterministic. Eg. If you load the Physics State and one callback is called later, that doesn't mean the Physics Server didn't execute deterministic, but rather that Godot internals decided to call it later (specficially the Area Collide event is called the next frame. Most things in Godot are called the next frame, so current frame after load might look wrong).
+
 ## Re-running a deterministic simulation
 
-In order to re-run a deterministic simulation, you have to have exactly the same input conditions. It's not enough to set the positions or velocities of the objects to where the objects were initially (it might look like the world inputs are the objects positions, but there are more hidden inputs too. In order to see the state of the world, use serialization functions on the space). In order to have the exact same conditions, you can reload the scene using `get_tree().reload_current_scene()`
+In order to re-run a deterministic simulation, you have to have exactly the same input conditions. It's not enough to set the positions or velocities of the objects to where the objects were initially (it might look like the world inputs are the objects positions, but there are more hidden inputs too. In order to see the state of the world, use serialization functions on the space). In order to have the exact same conditions, you can reload the scene using `get_tree().reload_current_scene()` and then reload the Physics State using `import_binary` functions (for all objects and space).
 
 ## Manual stepping
 
