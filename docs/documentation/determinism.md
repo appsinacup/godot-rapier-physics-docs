@@ -4,9 +4,40 @@ sidebar_position: 7
 
 # Determinism
 
-This plugin is deterministic in all variants, even the faster variant. Determinism here means that if the exact same initial conditions are met, the simulation will be exactly the same (in the Physics Server).
+This plugin is deterministic in all variants, even the faster variant (parallel). Determinism in this context means that if the exact same initial conditions are met, the **Physics State** will be exactly the same.
 
-Determinism means that if the inputs of the system and the outputs of the system are the same, the simulation has to be exactly the same. Imagine you have a system with inputs I1, I2, I3, and outputs O1, O2, O3. Running the simulation for T seconds with inputs I1..3 will result in outputs O1..3.
+
+:::note
+
+Interesting articles about determinism:
+- [From creator of Rapier](https://rapier.rs/docs/user_guides/rust/determinism)
+- [From creator of Box2D](https://box2d.org/posts/2024/08/determinism/)
+
+:::
+
+
+## Systems
+
+The Systems that interact with the Godot Rapier addon are the following:
+
+- Scene Tree: Handles nodes and their internal state.
+- Godot-Rapier: The glue code written that interacts with Godot and Rapier Library.
+- Rapier Library: Is both **deterministic** and **cross platform deterministic** (the latter comes with a performance penalty)
+
+## State
+
+All of the systems have an internal state. In this case, the **Godot-Rapier** and **Rapier Library** are deterministic, but not other parts of Godot (eg. the **Scene Tree**).
+
+What does this mean?
+
+- It means that if you save the state and reload the state of the **Physics Server**, that will only be the state for the Physics Server. It is the job of the person writting the game to make sure other parts of the game are in sync (eg. the nodes themselves).
+- It also means that, from a conceptual point, there is a **physics state** and a **node state**. A node, like a **Area**, has both godot state (was it intersecting last frame?) and physics state (is it intersecting now, what is the position, etc.). The difference between the two is Godot holds a **node state** as a cache layer in order to speed up accessing properties, while the actual source of truth is in the **physics state**.
+
+A good example can be seen below. The simulation is restarted from the exact point, but the contact point remains the old one until the frame processes (the physics serve is stopped for 1 second in between):
+
+![determinism](/img/determinism/determinism.gif)
+
+In such a case, one can think of this as the **actual** simulation data, and the **view** of that data. It can be dangerous to rely on the view of that data, as it can be old data. The best way to get the latest data is to access directly the **PhysicsServer** API.
 
 Aside for the Physics Server, another system that interacts in Godot is the Scene Tree and the Rendering System. These also have states that are not deterministic. Eg. If you load the Physics State and one callback is called later, that doesn't mean the Physics Server didn't execute deterministic, but rather that Godot internals decided to call it later (specficially the Area Collide event is called the next frame. Most things in Godot are called the next frame, so current frame after load might look wrong).
 
@@ -50,14 +81,6 @@ func _on_button_pressed() -> void:
 	RapierPhysicsServer2D.space_flush_queries(space)
 ```
 
-## Components
-
-The Godot Rapier addon interacts with the following:
-
-- Godot: The Scene Tree containing nodes
-- Rapier Wrapper: The glue code written that interacts with Godot and Rapier Library
-- Rapier Library: Is both **deterministic** and **cross platform deterministic** (the latter comes with a performance penalty)
-
 ## Godot
 
 The Godot element is non deterministic. If:
@@ -65,11 +88,8 @@ The Godot element is non deterministic. If:
 - Animations
 - Scripting logic
 
-Is used to interact with the physics server, that could be a source of creating un-determinism.
+Is used to interact with the physics server, that could be a source of creating un-determinism if you don't know for sure they are deterministic.
 
 ## Rapier Wrapper
 
-The wrapper has a lot of functions. The main interface is the **PhysicsServer** one from godot. There are a bunch of setters and getters, a **step** function and most notably an iterative **move_and_x** function.
-
-- There are some HashMaps. These might not be deterministic(have not checked).
-- RID's are used to map physics objects to nodes. The RID's change for every new node. This means if you reload a scene, you will not get exactly the same RID's.
+The wrapper has a lot of functions. The main interface is the **PhysicsServer** one from godot. There are a bunch of setters and getters, a **step** function and most notably an iterative **move_and_x** function. Rapier also exposes a bunch of extra functions through the **RapierPhysicsServer**.
