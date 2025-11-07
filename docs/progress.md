@@ -46,7 +46,7 @@ N/A | ❌ | SoftBody
 
 ❌ - Not implemented in Rapier Lib
 
-### Joints
+### Joints ✅
 
 2D | Joint
 -|-
@@ -58,7 +58,7 @@ N/A | ❌ | SoftBody
 -|-
 ✅ | Cone Twist Joint 3D
 ✅ | Generic 6 DOF Joint 3D
-⌛ | Hinge Joint 3D
+✅ | Hinge Joint 3D
 ✅ | Pin Join 3D
 ✅ | Slider Joint 3D
 
@@ -103,6 +103,6 @@ N/A|✅|Height Map Shape
 ✅|✅| Fluid Samples
 ✅|✅| Serialization
 ✅|✅| Deserialization
+✅|✅| Performance Improvement
 ⌛|⌛| Inverse Kinematics
 ⌛|⌛| MultiBody Joints
-⌛|⌛| Performance Improvement

@@ -7,7 +7,9 @@ authors:
     image_url: https://github.com/appsinacup.png
 tags: [changelog, release, performance]
 ---
-## What's Changed
+
+## What's New?
+
 * re-enable parallel feature by [@Ughuuu](https://github.com/Ughuuu) in https://github.com/appsinacup/godot-rapier-physics/pull/421
 * Fix groove joint from @legendofa by [@Ughuuu](https://github.com/Ughuuu) in https://github.com/appsinacup/godot-rapier-physics/pull/422
 * Update to use yarwin/gdext by [@Ughuuu](https://github.com/Ughuuu) in https://github.com/appsinacup/godot-rapier-physics/pull/425
