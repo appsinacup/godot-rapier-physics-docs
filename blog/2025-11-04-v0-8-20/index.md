@@ -18,8 +18,6 @@ tags: [changelog, release]
 ## New Contributors
 * @iLLsen made their first contribution in https://github.com/appsinacup/godot-rapier-physics/pull/429
 
-**Full Changelog**: https://github.com/appsinacup/godot-rapier-physics/compare/v0.8.19...
-
 :::note
 
 Learn how to install by reading the [Getting Started](http://localhost:3000/docs/intro#install-the-plugin-from-assetlib) documentation.
