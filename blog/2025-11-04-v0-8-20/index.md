@@ -1,6 +1,7 @@
 ---
 slug: v0-8-20
 title: 'v0.8.20'
+date: 2025-11-07
 authors: 
   - name: Apps in a Cup
     url: https://github.com/appsinacup
