@@ -7,6 +7,8 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import animation from '/static/img/rapier-vid.gif'
+import stacking from '/static/img/stacking.png'
+import stability from '/static/img/stability-comparison.gif'
 import ghost from '/static/img/ghost_collisions.gif'
 import fluid from '/static/img/fluid_shader.gif'
 import fluid3d from '/static/img/water_3d.gif'
@@ -37,6 +39,28 @@ function HomepageHeader() {
         <div style={{ textAlign: 'center', margin: 'auto', display: 'block', paddingBottom: '10px' }}>
           <img
               src={animation}
+              alt="loading..."
+              height={160}
+              style={{
+                "border-top-left-radius": "5px",
+                "border-bottom-left-radius": "5px",
+                borderRadius: '10px',
+                border: 'solid 4px black',
+              }}
+            />
+             <img
+              src={stacking}
+              alt="loading..."
+              height={160}
+              style={{
+                "border-top-left-radius": "5px",
+                "border-bottom-left-radius": "5px",
+                borderRadius: '10px',
+                border: 'solid 4px black',
+              }}
+            />
+             <img
+              src={stability}
               alt="loading..."
               height={160}
               style={{
