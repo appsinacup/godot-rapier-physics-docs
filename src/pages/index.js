@@ -49,17 +49,6 @@ function HomepageHeader() {
               }}
             />
              <img
-              src={stacking}
-              alt="loading..."
-              height={160}
-              style={{
-                "border-top-left-radius": "5px",
-                "border-bottom-left-radius": "5px",
-                borderRadius: '10px',
-                border: 'solid 4px black',
-              }}
-            />
-             <img
               src={stability}
               alt="loading..."
               height={160}
@@ -110,6 +99,17 @@ function HomepageHeader() {
               style={{
                 "border-top-right-radius": "5px",
                 "border-bottom-right-radius": "5px",
+                borderRadius: '10px',
+                border: 'solid 4px black',
+              }}
+            />
+             <img
+              src={stacking}
+              alt="loading..."
+              height={160}
+              style={{
+                "border-top-left-radius": "5px",
+                "border-bottom-left-radius": "5px",
                 borderRadius: '10px',
                 border: 'solid 4px black',
               }}
