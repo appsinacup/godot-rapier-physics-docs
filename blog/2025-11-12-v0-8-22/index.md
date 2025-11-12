@@ -1,6 +1,6 @@
 ---
-slug: v0-8-21
-title: 'v0.8.21'
+slug: v0-8-22
+title: 'v0.8.22'
 date: 2025-11-12
 authors: 
   - name: Apps in a Cup
