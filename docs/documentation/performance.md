@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 9
 ---
 
 # Performance
@@ -19,7 +19,7 @@ Shape|Dimensions|Godot 4.3 beta|Rapier|Rapier without state_sync_callback|[Box2D
 Circle + Rectangle|2D|2900|5000|7800|3000|N/A
 Sphere + Box|3D|1500|2500|4500|N/A|5000
 
-:::note
+:::note Performance Tip
 
 Rapier Physics Server gets a lot more performance with the **state_sync_callback** disabled for RigidBodies. Read more below to find out more.
 

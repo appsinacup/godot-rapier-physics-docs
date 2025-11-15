@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 7
 ---
 
 # Deserialization
@@ -13,7 +13,7 @@ RapierPhysicsServer.import_binary(rid)
 Note that you will need the rid of the object. This can be simple to do if you don't reload the scene, but if you do, then you need to do a mapping to know what object corresponds to what physics object. The reason is that the rid changes between runs. In order to figure out what rid the new object has, use the path of the object as unique property.
 
 
-:::note
+:::note RapierState Node
 
 There is a high level script provided in `addons/godot-rapier2d/rapier_state_2d.gd` and `addons/godot-rapier3d/rapier_state_3d.gd`. These simplify the process of saving/loading and exporting/importing of states. For an example of usage, check [Scene Change 2D Test](https://github.com/appsinacup/godot-rapier-physics/blob/main/bin2d/test/integration/scene_change.gd) and [Scene Change 3D Test](https://github.com/appsinacup/godot-rapier-physics/blob/main/bin3d/test/integration/scene_change.gd), and their scenes they are in.
 

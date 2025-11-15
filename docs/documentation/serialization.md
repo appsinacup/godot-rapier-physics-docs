@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 # Serialization
@@ -15,7 +15,7 @@ Each object (shapes, bodies, spaces, joints) has state. You need to save at leas
 
 The reason each individual object has an import and export function is that they all match to things outside of Physics Server (eg. in the Scene tree). They need to be reimported and matched to their RID (Resource ID). This changes every time you reload the scene (eg. for each node or space).
 
-:::note
+:::note RapierState Node
 
 There is a high level script provided in `addons/godot-rapier2d/rapier_state_2d.gd` and `addons/godot-rapier3d/rapier_state_3d.gd`. These simplify the process of saving/loading and exporting/importing of states. For an example of usage, check [Scene Change 2D Test](https://github.com/appsinacup/godot-rapier-physics/blob/main/bin2d/test/integration/scene_change.gd) and [Scene Change 3D Test](https://github.com/appsinacup/godot-rapier-physics/blob/main/bin3d/test/integration/scene_change.gd), and their scenes they are in.
 
@@ -33,7 +33,7 @@ var space_3d_rid = get_viewport().world_3d.space
 ```
 
 
-:::note
+:::note SubViewports
 
 If you want the physics simulation to happen inside another space and not interact with the default space, you can create a new space by creating a new [SubViewport](https://docs.godotengine.org/en/stable/tutorials/rendering/viewports.html). These come with new **world_2d** and/or **world_3d** instances. If you do this, you also have to render the new viewport using [SubViewportContainer](https://docs.godotengine.org/en/stable/classes/class_subviewportcontainer.html#class-subviewportcontainer).
 
@@ -45,7 +45,7 @@ Next, all you have to do is call the export function from the **RapierPhysicsSer
 var exported_binary: String = RapierPhysicsServer.export_binary(space_rid)
 ```
 
-:::note
+:::note Binary vs JSON
 
 Every export function has both json and binary variants. The **binary** one is going to be faster and result in  less size, while the **json** one is going to be better for debugging.
 

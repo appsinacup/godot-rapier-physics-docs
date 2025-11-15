@@ -14,11 +14,11 @@ tags: [changelog, release]
 * Fix character controller by @Ughuuu in https://github.com/appsinacup/godot-rapier-physics/pull/436
 
 
-:::note
+:::note Learn how to install
 
-Learn how to install by reading the [Getting Started](http://localhost:3000/docs/intro#install-the-plugin-from-assetlib) documentation.
+  Read the [Getting Started](http://localhost:3000/docs/intro#install-the-plugin-from-assetlib) documentation.
 
-Join the conversation on [Discord](https://discord.gg/56dMud8HYn).
+  Join the conversation on [Discord](https://discord.gg/56dMud8HYn).
 
 :::
 

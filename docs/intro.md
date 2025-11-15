@@ -9,7 +9,7 @@ sidebar_position: 1
 **Godot Rapier Physics** is a Rust wrapper on top of the [Rapier Lib](https://rapier.rs) written for Godot. **Rapier** is a set of 2D and 3D physics libraries written by [Dimforge](https://dimforge.com).
 
 
-:::note
+:::note Features
 
 For a complete list of what features it has and what is worked on, read [Feature List](progress.md) page.
 
@@ -28,7 +28,7 @@ First create a new **Godot Project**. Next click on the **AssetLib** tab and sea
 
 ![installing the plugin](/img/intro/install-addon.png)
 
-:::note
+:::note Versions
 
 There are 4 versions of the Rapier plugin. One for **2D**, one for **3D**.
 

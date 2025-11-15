@@ -27,7 +27,7 @@ sidebar_position: 4
 ✅|✅|Cross Platform Deterministic Build
 ✅|✅|Parallel SIMD Build
 
-:::note
+:::note Double Builds
 
 If you want custom double builds, that is currently not supported. A dependency, salva, used for liquids, doesn't currently support double builds. Will come at a later time.
 
@@ -94,7 +94,7 @@ N/A|✅|Height Map Shape
 
 - No support for asymmetric collisions (eg. object 1 hitting object 2 but object 2 not hitting object 1). This is the exact check rapier does: `(A.layer & B.mask) != 0 || (B.layer & A.mask) != 0`
 
-## New Features
+## New Features ✅
 
 2D | 3D| Feature
 -|-|-
@@ -104,5 +104,5 @@ N/A|✅|Height Map Shape
 ✅|✅| Serialization
 ✅|✅| Deserialization
 ✅|✅| Performance Improvement
+✅|✅| MultiBody Joints
 ⌛|⌛| Inverse Kinematics
-⌛|⌛| MultiBody Joints

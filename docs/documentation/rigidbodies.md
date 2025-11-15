@@ -6,6 +6,12 @@ sidebar_position: 3
 
 Configuring rigid bodies can be difficult. This page describes some of the most common configurations.
 
+## Increased Stackability
+
+In order to improve simulation stackability and stability in general, Rapier Extension Classes (eg. RapierRigidBody2D, ..) offer custom settings, such as:
+- **body_skin**: adds a small skin on top of the body, defualt is 0
+- **soft_ccd**: setting this to a small value of how much the object might overlap helps with reducing squishiness.
+
 ## Ghost Collisions
 
 Ghost Collisions are collisions that stop objects from moving when intersecting with a static object made out of multiple pieces of geometry (tile sets, polygon).

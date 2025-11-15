@@ -50,7 +50,7 @@ In order to simulate fluids, you need to add points. These can be created with t
 - `addons/godot-rapier3d/fluid_3d_box.gd`: Set a width and height and depth and it creates fluid particles inside the box.
 
 
-:::note
+:::note DebugDraw
 
 In order to see the points, don't forget to activate the **debug_draw** option on the node.
 

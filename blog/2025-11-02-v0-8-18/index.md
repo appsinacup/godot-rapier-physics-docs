@@ -16,11 +16,11 @@ tags: [changelog, release, performance]
 * Canvas layer parentage fix by [@dog-molecule](https://github.com/dog-molecule) in https://github.com/appsinacup/godot-rapier-physics/pull/420
 * update to latest rust and use simd-nightly by [@Ughuuu](https://github.com/Ughuuu) in https://github.com/appsinacup/godot-rapier-physics/pull/419
 
-:::note
+:::note Learn how to install
 
-Learn how to install by reading the [Getting Started](http://localhost:3000/docs/intro#install-the-plugin-from-assetlib) documentation.
+  Read the [Getting Started](http://localhost:3000/docs/intro#install-the-plugin-from-assetlib) documentation.
 
-Join the conversation on [Discord](https://discord.gg/56dMud8HYn).
+  Join the conversation on [Discord](https://discord.gg/56dMud8HYn).
 
 :::
 

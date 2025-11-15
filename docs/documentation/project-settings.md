@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Project Settings
@@ -7,6 +7,8 @@ sidebar_position: 4
 There are some options which can be configured for the Rapier library that change the physics simulation for the whole project. These can be accessed from **Project Settings** -> **Physics** -> **Rapier**:
 
 ![settings](/img/project-settings/settings.png)
+
+There are also 2 presets available, one for **Performance** and one for **Stability**. They both set some settings that improve one or the other.
 
 ## Solver
 
