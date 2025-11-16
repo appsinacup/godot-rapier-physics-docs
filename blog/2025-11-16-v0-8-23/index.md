@@ -1,7 +1,7 @@
 ---
-slug: v0-8-21
-title: 'v0.8.21'
-date: 2025-11-08
+slug: v0-8-23
+title: 'v0.8.23'
+date: 2025-11-16
 authors: 
   - name: Apps in a Cup
     url: https://github.com/appsinacup
@@ -10,9 +10,6 @@ tags: [changelog, release]
 ---
 
 ## What's New?
-* fix sleeping not working by @Ughuuu in https://github.com/appsinacup/godot-rapier-physics/pull/434
-* Fix character controller by @Ughuuu in https://github.com/appsinacup/godot-rapier-physics/pull/436
-
 
 :::note Learn how to install
 
@@ -22,4 +19,4 @@ tags: [changelog, release]
 
 :::
 
-**Full Changelog**: https://github.com/appsinacup/godot-rapier-physics/compare/v0.8.20...
+**Full Changelog**: https://github.com/appsinacup/godot-rapier-physics/compare/v0.8.22...nightly

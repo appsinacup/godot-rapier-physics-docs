@@ -21,7 +21,7 @@ tags: [changelog, release]
 
 :::note Learn how to install
 
-  Read the [Getting Started](http://localhost:3000/docs/intro#install-the-plugin-from-assetlib) documentation.
+  Read the [Getting Started](https://godot.rapier.rs/docs/intro#install-the-plugin-from-assetlib) documentation.
 
   Join the conversation on [Discord](https://discord.gg/56dMud8HYn).
 
