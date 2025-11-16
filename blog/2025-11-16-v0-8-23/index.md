@@ -9,6 +9,18 @@ authors:
 tags: [changelog, release]
 ---
 
+## Inverse Kinematics Joints
+
+![ik](/img/0823/ik2.gif)
+
+## Body Skin
+
+![body_skin](/img/0823/body_skin.gif)
+
+## Stability/Performance Presets
+
+![presets](/img/0823/presets.gif)
+
 ## What's New?
 * Add multibody_joints in code by @Ughuuu in https://github.com/appsinacup/godot-rapier-physics/pull/448
 * add soft ccd and presets and rapier 2d extra nodes(wip) - 1/2 by @Ughuuu in https://github.com/appsinacup/godot-rapier-physics/pull/449
