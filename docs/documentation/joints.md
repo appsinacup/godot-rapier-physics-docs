@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Multibdoy Joints and IK (EXPERIMENTAL)
+# Multibdoy Joints and IK
 
 Godot Rapier has **Impulse Joints**, which use Constraints-based approach.
 

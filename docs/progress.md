@@ -105,4 +105,4 @@ N/A|✅|Height Map Shape
 ✅|✅| Deserialization
 ✅|✅| Performance Improvement
 ✅|✅| MultiBody Joints
-⌛|⌛| Inverse Kinematics
+✅|✅| Inverse Kinematics
