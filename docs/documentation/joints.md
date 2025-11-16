@@ -23,3 +23,5 @@ The multibody joints support IK target nodes. In order to use it, create a Rapie
 Now, the whole chain structure will follow the **ik_target**:
 
 ![ik](/img/joints/ik.png)
+
+When setting a multibody joint, the rigidbodies need to not collide with eachother and be massless.

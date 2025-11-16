@@ -11,6 +11,7 @@ Configuring rigid bodies can be difficult. This page describes some of the most 
 In order to improve simulation stackability and stability in general, Rapier Extension Classes (eg. RapierRigidBody2D, ..) offer custom settings, such as:
 - **body_skin**: adds a small skin on top of the body, defualt is 0
 - **soft_ccd**: setting this to a small value of how much the object might overlap helps with reducing squishiness.
+- **massless**: sets mass to 0. Needs to be set when using multibody joints.
 
 ## Ghost Collisions
 
