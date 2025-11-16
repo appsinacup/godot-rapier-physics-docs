@@ -13,6 +13,7 @@ import ghost from '/static/img/ghost_collisions.gif'
 import fluid from '/static/img/fluid_shader.gif'
 import fluid3d from '/static/img/water_3d.gif'
 import determinism from '/static/img/determinism/determinism.gif'
+import ik from '/static/img/0823/ik2.gif'
 import banner from '/static/img/rapier_banner.jpg'
 
 function HomepageHeader() {
@@ -93,6 +94,17 @@ function HomepageHeader() {
               }}
             />
             <img
+              src={ik}
+              alt="loading..."
+              height={160}
+              style={{
+                "border-top-right-radius": "5px",
+                "border-bottom-right-radius": "5px",
+                borderRadius: '10px',
+                border: 'solid 4px black',
+              }}
+            />
+            <img
               src={determinism}
               alt="loading..."
               height={160}
@@ -143,7 +155,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Rapier Physics addon for Godot that a new physics server for 2D or 3D with better stability, performance, no ghost collisions, liquids and determinism.">
+      description="Rapier Physics addon for Godot that a new physics server for 2D or 3D with better stability, performance, no ghost collisions, liquids, inverse kinematics and determinism.">
       <HomepageHeader />
 
       <main>
