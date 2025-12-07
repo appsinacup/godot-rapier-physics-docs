@@ -8,15 +8,15 @@ The Rapier physics engine supports the ability to serialize the entire physics s
 
 # Caveats
 
-In the implementation's present state, there are some important limitations for users to be aware of. For example, at time of writing, the save/load system does not manipulate the scene tree. That means that if you instantiate or delete nodes (even if those nodes are physics objects),
+In the implementation's present state, there are some important limitations for users to be aware of. At time of writing, the save/load system does not manipulate the scene tree. That means that if you instantiate or delete nodes (even if those nodes are physics objects),
 the Godot Rapier serialization system will not automatically handle creation or deletion of those nodes. For example, let's say you have a scene which starts with two physics objects in it. You save the game (creating save state A). Then, you delete one of the physics objects, creating state B. If you then try to load state A from state B, you will encounter errors-- because the load system attempts to restore the state of the deleted physics object, but that object no longer exists in the scene tree. This means users must manually ensure that their scene tree objects match the objects represented by the physics state.
 
 # Functionalities
 
 The serialization system has two main modes-- export mode and cache mode. In export mode, the physics space state is exported in any of three formats:
-1) Json. This format is a comparatively slow option, but it's human-readable, which makes it convenient for debugging or state analysis.
-2) Godot Base64 Encoded String. Takes the Json physics state and encodes it into Godot Base64 binary. As such, it can be thought of as a slightly obfuscated version of the Json format option; it can be stored on disk more conveniently than the Json format, and can easily be decoded in GDScript.
-3) Rust Bincode. This binary format is the recommended option for most use cases, as it's much faster than the other two formats; however, it is not human-readable and cannot be manually decoded in GDScript.
+1. Json. This format is a comparatively slow option, but it's human-readable, which makes it convenient for debugging or state analysis.
+2. Godot Base64 Encoded String. Takes the Json physics state and encodes it into Godot Base64 binary. As such, it can be thought of as a slightly obfuscated version of the Json format option; it can be stored on disk more conveniently than the Json format, and can easily be decoded in GDScript.
+3. Rust Bincode. This binary format is the recommended option for most use cases, as it's much faster than the other two formats; however, it is not human-readable and cannot be manually decoded in GDScript.
 Export mode is designed for applications that need state to be saved to disk-- for example, if you want to save your game and load it from file later. 
 
 The second mode-- state caching-- is a streamlined methodology for conveniently rapidly restoring saved data (for example, if a checkpoint has to be frequently reloaded). Cached state is stored in memory, in an object handled by the StateManager. The cache contains logic that can optionally store multiple states in an array, including support for cache rolling, which will automatically delete the oldest state if the specified maximum cache length is exceeded.
