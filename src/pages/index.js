@@ -128,22 +128,28 @@ function HomepageHeader() {
             />
           </div>
 
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Documentation
-          </Link>
-        </div>
-        <div className={styles.buttons}>
-          -
-        </div>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/blog">
-            Updates
-          </Link>
+        <div className={styles.buttonGroup}>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--lg"
+              to="/docs/intro">
+              Documentation
+            </Link>
+          </div>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--lg"
+              to="/blog">
+              Updates
+            </Link>
+          </div>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--lg"
+              to="/showcase">
+              Showcase
+            </Link>
+          </div>
         </div>
       </div>
     </header>

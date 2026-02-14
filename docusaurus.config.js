@@ -82,6 +82,7 @@ const config = {
             label: 'Documentation',
           },
           {to: '/blog', label: 'Updates', position: 'left'},
+          {to: '/showcase', label: 'Showcase', position: 'left'},
           {
             href: 'https://github.com/sponsors/appsinacup',
             label: 'Donate',

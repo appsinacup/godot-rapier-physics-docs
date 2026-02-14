@@ -1,0 +1,61 @@
+.hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  margin: 0.5rem auto;
+  max-width: 48rem;
+}
+
+.actions {
+  margin-top: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media screen and (max-width: 996px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  height: 100%;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quote {
+  font-style: italic;
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.cardMeta {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.platform {
+  font-weight: 600;
+}
+
+.previewImage {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: var(--ifm-background-surface-color);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}

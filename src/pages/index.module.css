@@ -21,3 +21,22 @@
   align-items: center;
   justify-content: center;
 }
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+@media (orientation: portrait) {
+  .buttonGroup {
+    flex-direction: column;
+  }
+}
+
+@media (orientation: landscape) {
+  .buttonGroup {
+    flex-direction: row;
+  }
+}
