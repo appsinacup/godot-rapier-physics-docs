@@ -45,6 +45,15 @@ const showcaseItems = [
     link: 'https://store.steampowered.com/app/4163480/Dewdrop/',
     quote: 'It is a god send for my type of game 🙂 thank you”',
   },
+  {
+    title: 'ploink',
+    description:
+      "Wacky plinko-inspired roguelike. Design a board of weird items, drop balls with silly little faces then watch the physics explode into a satisfying chain-reaction of numbers until your CPU explodes (Your CPU won't actually explode)",
+    image: '/img/showcase/ploink.jpg',
+    platform: 'Steam',
+    link: 'https://store.steampowered.com/app/3929350/ploink/',
+    quote: "A lot of physics issues were immediately gone when I switched. I would honestly say that the game wouldn't even exist in its current state if it wasn't for Rapier. So big thumbs up to you👍”",
+  },
 ];
 
 function shuffleItems(items) {
