@@ -90,7 +90,7 @@ const config = {
             className: 'header-button-donate'
           },
           {
-            href: 'https://discord.gg/56dMud8HYn',
+            href: 'https://discord.gg/v649emcpAu',
             label: 'Discord',
             position: 'right',
             className: 'header-button-donate'
@@ -129,7 +129,7 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discord.gg/56dMud8HYn',
+                href: 'https://discord.gg/v649emcpAu',
               },
             ],
           },

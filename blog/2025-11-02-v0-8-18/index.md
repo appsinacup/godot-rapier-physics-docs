@@ -20,7 +20,7 @@ tags: [changelog, release, performance]
 
   Read the [Getting Started](https://godot.rapier.rs/docs/intro#install-the-plugin-from-assetlib) documentation.
 
-  Join the conversation on [Discord](https://discord.gg/56dMud8HYn).
+  Join the conversation on [Discord](https://discord.gg/v649emcpAu).
 
 :::
 
