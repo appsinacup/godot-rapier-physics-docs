@@ -2,11 +2,11 @@
 sidebar_position: 4
 ---
 
-# Multibdoy Joints and IK
+# Multibody Joints and IK
 
 Godot Rapier has **Impulse Joints**, which use Constraints-based approach.
 
-It also has **Multibdoy Joints**, which use the [Reduced Coordinates Approach](https://rapier.rs/docs/user_guides/rust/joint_constraints). They are more stable but slower and can be used for IK. Multibody joints are a chain of multiple joints that are continuously connected, and use the Rapier Extension Classes.
+It also has **Multibody Joints**, which use the [Reduced Coordinates Approach](https://rapier.rs/docs/user_guides/rust/joint_constraints). They are more stable but slower and can be used for IK. Multibody joints are a chain of multiple joints that are continuously connected, and use the Rapier Extension Classes.
 
 :::note "WHICH APPROACH SHOULD I USE?"
 
@@ -25,3 +25,4 @@ Now, the whole chain structure will follow the **ik_target**:
 ![ik](/img/joints/ik.png)
 
 When setting a multibody joint, the rigidbodies need to not collide with eachother and be massless.
+
