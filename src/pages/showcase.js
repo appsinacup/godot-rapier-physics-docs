@@ -62,6 +62,15 @@ const showcaseItems = [
     platform: 'Steam',
     link: 'https://store.steampowered.com/app/4074780/Hover_Point/',
     quote: "This game is COMPLETELY unplayable without rapier2D. This plugin really solves A LOT of problem that Godot default 2D physics have.",
+  },
+  {
+    title: 'Dot Escape',
+    description:
+      "Draw your way to freedom! You're a tiny dot trapped in a level. There is a glowing portal nearby. Your job? Reach it.",
+    image: '/img/showcase/dot-escape.png',
+    platform: 'Google Play',
+    link: 'https://play.google.com/store/apps/details?id=com.jamesresend.dotescape',
+    quote: "Thank you to all contributors that work on this engine, without you I would have scrapped the game to due bad Godot physics 💙",
   }
 ];
 
