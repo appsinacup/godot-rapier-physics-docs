@@ -54,6 +54,15 @@ const showcaseItems = [
     link: 'https://store.steampowered.com/app/3929350/ploink/',
     quote: "A lot of physics issues were immediately gone when I switched. I would honestly say that the game wouldn't even exist in its current state if it wasn't for Rapier. So big thumbs up to you👍”",
   },
+  {
+    title: 'Hover Point',
+    description:
+      "Hover Point is a physics-based rogue-lite bullet hell where movement is your weapon. Dodge chaotic swarms with auto-fire action, build your skill tree, and climb global leaderboards. Master the chaos solo or in co-op via mouse-only, keyboard-only, or controller-only playstyles.",
+    image: '/img/showcase/hover-point.png',
+    platform: 'Steam',
+    link: 'https://store.steampowered.com/app/4074780/Hover_Point/',
+    quote: "This game is COMPLETELY unplayable without rapier2D. This plugin really solves A LOT of problem that Godot default 2D physics have.",
+  }
 ];
 
 function shuffleItems(items) {
