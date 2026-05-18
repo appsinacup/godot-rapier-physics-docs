@@ -19,7 +19,7 @@ Get started by **installing the plugin** and activate the new **Physics Server**
 
 ## What you'll need
 
-- [Godot](https://godotengine.org/download/) version 4.5 or above.
+- [Godot](https://godotengine.org/download/) version 4.6 or above.
 - **Rapier** plugin from the Godot Asset Library.
 
 ## Install the plugin from AssetLib
