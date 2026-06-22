@@ -19,12 +19,12 @@ Get started by **installing the plugin** and activate the new **Physics Server**
 
 ## What you'll need
 
-- [Godot](https://godotengine.org/download/) version 4.6 or above.
-- **Rapier** plugin from the Godot Asset Library.
+- [Godot](https://godotengine.org/download/) version 4.7 or above.
+- **Rapier** plugin from the Godot Asset Store.
 
-## Install the plugin from AssetLib
+## Install the plugin from Asset Store
 
-First create a new **Godot Project**. Next click on the **AssetLib** tab and search for the **Rapier** addon and click on the version you want.
+First create a new **Godot Project**. Next click on the **Asset Store** tab and search for the **Rapier** addon and click on the version you want.
 
 ![installing the plugin](/img/intro/install-addon.png)
 
@@ -67,7 +67,7 @@ Then go to **Physics/2D** or **Physics/3D**. At the **Physics Engine** dropdown 
 
 ## Optionally, Install the plugin from GitHub Releases
 
-You can also install the latest release from **GitHub**. These versions are usually newer than the **AssetLib** releases.
+You can also install the latest release from **GitHub**. These versions are usually newer than the **Asset Store** releases.
 
 In order to install the latest release, simply go to the [Godot Rapier Releases](https://github.com/appsinacup/godot-rapier-physics/releases) page and download the zip with the flavour you like (eg. **godot-rapier-2d-single-simd-parallel.zip**
 ). Make sure to click on the Assets dropdown to see the assets.
