@@ -2,9 +2,22 @@
 sidebar_position: 4
 ---
 
-# Feature List (Updated Nov 2025)
+# Feature List (Updated Aug 2026)
 
  See the tables below to get an idea of what status it is in.
+
+## Rapier-only Nodes
+
+Nodes this plugin adds that Godot itself does not have:
+
+Node | What it is
+-|-
+Fluid2D / Fluid3D | Particle fluids, with shape helpers, faucets and renderers
+RapierRopeJoint2D / 3D | Maximum-distance constraint: chains, tethers, grappling hooks
+RapierFixedJoint2D / 3D | Welds two bodies into one rigid assembly
+RapierStateManager2D / 3D | Save, load and cache whole-space physics state
+
+The extended body and joint nodes are listed in the [Class Reference](reference/bodies).
 
 ## Godot Features
 
@@ -50,17 +63,21 @@ N/A | ❌ | SoftBody
 
 2D | Joint
 -|-
-✅ | Pin Join 2D
+✅ | Pin Joint 2D
 ✅ | Groove Joint 2D
 ✅ | Damped Spring Joint 2D
+✅ | Rope Joint 2D (Rapier only)
+✅ | Fixed Joint 2D (Rapier only)
 
 3D | Joint
 -|-
 ✅ | Cone Twist Joint 3D
 ✅ | Generic 6 DOF Joint 3D
 ✅ | Hinge Joint 3D
-✅ | Pin Join 3D
+✅ | Pin Joint 3D
 ✅ | Slider Joint 3D
+✅ | Rope Joint 3D (Rapier only)
+✅ | Fixed Joint 3D (Rapier only)
 
 ### Shapes ✅
 

@@ -1,0 +1,9 @@
+{
+    "label": "Class Reference",
+    "position": 3.5,
+    "collapsed": false,
+    "link": {
+      "type": "generated-index",
+      "description": "The extra nodes and server methods this plugin adds on top of Godot's physics API."
+    }
+  }

@@ -8,12 +8,16 @@ There are some options which can be configured for the Rapier library that chang
 
 ![settings](/img/project-settings/settings.png)
 
-There are also 2 presets available, one for **Performance** and one for **Stability**. They both set some settings that improve one or the other.
+There are also 2 presets available, one for **Performance** and one for **Stability**, plus **Custom**. **Stability is the default.**
+
+The preset is authoritative: while it is set to Performance or Stability, it decides the four settings it covers (*Num Internal Pgs Iterations*, *Num Internal Stabilization Iterations*, *Contact Damping Ratio*, *Contact Natural Frequency*) and editing those individually has no effect. Select **Custom** to control them yourself.
+
+Stability is the default because Rapier's own values leave a large pile creeping: a 1596-box pyramid needs about 8 seconds before every body in the island is quiet enough to sleep, and until the last one is, none of them sleep. Stability brings that to about 3 seconds, for roughly 12% more step time.
 
 ## Solver
 
-- **Num Internal Pgs Iterations**: Number of internal Project Gauss Seidel (PGS) iterations run at each solver iteration (default: 1).
-- **Num Internal Stabilization Iterations**: The number of stabilization iterations run at each solver iterations (default: 1).
+- **Num Internal Pgs Iterations**: Number of internal Project Gauss Seidel (PGS) iterations run at each solver iteration (default: 4 with the Stability preset, 1 with Performance).
+- **Num Internal Stabilization Iterations**: The number of stabilization iterations run at each solver iterations (default: 4 with the Stability preset, 1 with Performance).
 - **Num Iterations**: The number of solver iterations run by the constraints solver for calculating forces (default: 4).
   Higher values produce more accurate and stable simulations at the cost of performance.
   - 4 (default): Good balance for most games
@@ -33,7 +37,9 @@ There are also 2 presets available, one for **Performance** and one for **Stabil
 
 ## Logic
 
-- **Ghost Collision Distance 2D**: The algorithm that prunes *ghost contacts* is applied only for contacts below this distance. (default 0.15)
+- **Oriented Concave Polyline 2D**: Treats `ConcavePolygonShape2D` as one-sided, clamping contact normals to the outward side so that contacts at the internal edges between segments never generate. (default: off)
+
+  Leave this off unless you know your geometry is one-sided. Godot's `ConcavePolygonShape2D` is double-sided — unlike `ConcavePolygonShape3D` it has no `backface_collision` property — so enabling this can let bodies pass through level geometry from one side. When enabled, the solid must lie to the right of each segment's direction; closed loops are corrected automatically, and open polylines produce a warning because there is no interior to infer a side from.
 
 ## Fluid
 

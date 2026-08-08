@@ -47,85 +47,14 @@ The second mode **state caching** is a streamlined methodology for conveniently 
 
 ## Usage
 
-Serialization is performed by the StateManager node (either the 2D or the 3D version, depending on your use case), which is a new node type added by Godot Rapier. Simply add a StateManager to your scene, and then call the following methods on it.
+Serialization is performed by the **RapierStateManager2D** / **RapierStateManager3D** node. Add one to your scene and call `export_state` / `import_state` on it with the space's RID — step by step in the [Save and Load State tutorial](../tutorial/save-and-load-state), full API in the [Class Reference](../reference/state-manager).
 
-### Export and Import
-
-To export the state, simply call the relevant method and supply the relevant space's RID, along with the export format (the below example is written in GDScript and takes the 2D world's default space):
-
-```js
-var space_rid = get_world_2d().space;
-saved_state = rapier_state_manager.export_state(space_rid, "Json")
-```
-
-The strings corresponding to the various formats are:
-1. "Json" for Json.
-2. "GodotBase64" for Godot's Base64 encoded string.
-3. "RustBincode" for Rust-native binary data.
-
-Serialization works by taking a space and gathering up the physics state of all objects within that space (hence the supplied space RID). To export multiple different spaces, simply run the export for each relevant space's RID.
-The export method will return a Godot Variant object-- a string for Json or GodotBase64, and a PackedByteArray for RustBincode. It's up to the user to decide how to use or store that variant to disk.
-
-Once exported, state can be loaded using the import method:
-
-```js
-rapier_state_manager.import_state(space_rid, saved_state)
-```
-
-... Where saved_state must be a Godot Variant object. Note that format doesn't have to be supplied during the import call, as it will be automatically deduced from the data.
+Serialization gathers the physics state of all objects within the supplied space; to export multiple spaces, export each RID. Export returns a String for `Json` and `GodotBase64` or a `PackedByteArray` for `RustBincode`; import detects the format automatically.
 
 ### State Caching API
 
-To cache the physics state in memory, users can use the caching API. The following cache-related parameters are exposed from the StateManager:
+To cache physics state in memory instead of exporting it, use the caching API: `cache_state` snapshots the space and labels it with any Variant tag ("library_entry", a frame number, ...), `ordered_cache_tags` finds a snapshot's index by tag, and `load_cached_state` restores it.
 
-```js
-max_cache_length
-```
-The max number of states that can be stored in memory simultaneously. It's recommended that users be conservative and keep this number low where possible, depending on the expected sizes of your states.
+Keep `max_cache_length` conservative, since each snapshot holds a whole space. With `rolling_cache` enabled a full cache evicts its oldest snapshot on the next `cache_state`; even then some manual management is desirable — after restoring an older state, clear the snapshots that were taken after it.
 
-```js
-rolling_cache
-```
-A bool that determines whether the cache should automatically remove the oldest existing cached state if a new state is cached while the cache is already at capacity. For example, if the cache has a max cache length of 5, and it has 5 states stored in memory, the state at index 0 will be removed when **cache_state** is called if **rolling_cache** is set to true. Note that some manual cache management is often desirable even if **rolling_cache** is enabled; for example, when a state is loaded but the cache also contains saved states that were generated after the state which is being restored, it is usually best to manually clear the cache.
-
-The following cache-related methods are exposed via the StateManager:
-
-```js
-get_max_cache_length()
-```
-Gets the current max cache length.
-
-```js
-set_max_cache_length(int new_length)
-```
-Changes the max cache length to the supplied value.
-
-```js
-cache_state(RID in_space, Variant tag)
-```
-Caches the current state of the space corresponding to the supplied **RID**. The **tag** parameter gives users the ability to essentially label the states in the cache with useful identifying information (for example, if you're storing state when the player character enters a library, you could tag the state with "library_entry"). The tag is a variant, so it can be whatever the user wants-- a string, a number, a binary array. This tag is the only way for users to easily differentiate between the contents of the cached states, so it's recommended to use something explicit and descriptive.
-
-```js
-load_cached_state(RID in_space, int index)
-```
-Loads the state from the cache at the given index into the specified space. To determine the index to load, one might use:
-
-```js
-ordered_cache_tags()
-```
-This method returns all the tags of the cached items in order-- so if you want to find a cached state with a specific tag, you can look up it's position in the list returned by this method, and then supply that index to load_cached_state.
-
-```js
-clear_cache()
-```
-Clears all states from the cache.
-
-```js
-remove_cached_by_index()
-```
-Removes the specified state from the cache.
-
-```js
-export_state_from_cache(int index, String serialization_format)
-```
-Serializes the selected cached state (allowing the state to be saved to disk, for example).
+All methods and properties are listed in the [Class Reference](../reference/state-manager).

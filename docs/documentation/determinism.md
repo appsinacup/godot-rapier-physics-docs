@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # Determinism
 
-This plugin is deterministic in all variants, even the faster variant (parallel). Determinism in this context means that if the exact same initial conditions are met, the **Physics State** will be exactly the same.
+This plugin is deterministic. Determinism in this context means that if the exact same initial conditions are met, the **Physics State** will be exactly the same.
 
 
 :::note Articles

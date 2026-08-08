@@ -12,16 +12,21 @@ If the performance you are getting is not what you are expecting, first thing to
 
 ## Benchmark
 
-This benchmark is done by creating objects until FPS drops below 30. Running on a mac book m1 air with Godot 4.3. Everything is run inside the godot editor using the [Godot Physics Tests](https://github.com/fabriceci/Godot-Physics-Tests) repository. Rendering is disabled for these tests as to only test physics solving speed. Higher number is better.
+p50 physics step time on the same scenes, release builds, Godot 4.7, M1, rendering excluded. Lower is better.
 
-Shape|Dimensions|Godot 4.3 beta|Rapier|Rapier without state_sync_callback|[Box2D(2.4.1) 0.9.9 UNMAINTAINED](https://godotengine.org/asset-library/asset/2007)|[Jolt 0.13.beta](https://godotengine.org/asset-library/asset/1918)
--|-|-|-|-|-|-
-Circle + Rectangle|2D|2900|5000|7800|3000|N/A
-Sphere + Box|3D|1500|2500|4500|N/A|5000
+Benchmark | Rapier2D | [Box2D v3](https://github.com/Pizzaandy/godot-box2d-v3) | | Rapier3D | [Jolt](https://github.com/godot-jolt/godot-jolt)
+-|-|-|-|-|-
+Box pyramid (10k bodies 2D) | **15.6 ms** | 17.0 ms | | **20.6 ms** | 25.1 ms
+Mixed shape pile | 6.9 ms | **5.5 ms** | | **10.8 ms** | 12.4 ms
+Joint grid | 6.4 ms | **3.9 ms** | | **11.5 ms** | timeout
+Smash (3k bodies) | **7.8 ms** | 8.9 ms | | 13.3 ms | **12.6 ms**
+Query storm | 5.7 ms | **4.0 ms** | | **5.7 ms** | 22.3 ms
+
+For 2D, roughly 9,000 active box-stack bodies fit in a 60 FPS physics budget on this machine. Sleeping bodies are nearly free, so scenes can hold far more bodies than that if most are at rest.
 
 :::note Performance Tip
 
-Rapier Physics Server gets a lot more performance with the **state_sync_callback** disabled for RigidBodies. Read more below to find out more.
+The official builds enable `experimental-threads`. Building from source without it is another 6-17% faster. Rapier gets a lot more performance with the **state_sync_callback** disabled for RigidBodies — read below.
 
 :::
 
@@ -50,10 +55,10 @@ In order to then get the transform of all the objects that were active, the **Ra
 
 ```js
 var body_rids: Array = RapierPhysicsServer2D.space_get_active_bodies(space_rid)
-var body_transforms: Array[Transform2D] = RapierPhysicsServer2D.space_get_bodies_positions(body_rids)
+var body_transforms: Array[Transform2D] = RapierPhysicsServer2D.space_get_bodies_transform(body_rids)
 #or
 var body_rids: Array = RapierPhysicsServer3D.space_get_active_bodies(space_rid)
-var body_transforms: Array[Transform3D] = RapierPhysicsServer3D.space_get_bodies_positions(body_rids)
+var body_transforms: Array[Transform3D] = RapierPhysicsServer3D.space_get_bodies_transform(body_rids)
 ```
 
 In order to render the objects, you can use a **MultiMeshInstance**, like so:

@@ -24,5 +24,13 @@ Now, the whole chain structure will follow the **ik_target**:
 
 ![ik](/img/joints/ik.png)
 
-When setting a multibody joint, the rigidbodies need to not collide with eachother and be massless.
+When setting a multibody joint, the rigidbodies need to not collide with each other and be massless.
+
+## Motor position targets
+
+Rapier's motors can drive a joint to a target velocity or a target position. Godot only exposes velocity targets; `RapierPinJoint2D` and `RapierHingeJoint3D` add position targets, which act like a spring towards an angle in radians.
+
+![inspector properties](/img/joint_motors/motor_position_inspector.png)
+
+Every joint node and its properties is listed in the [Class Reference](../reference/joints).
 

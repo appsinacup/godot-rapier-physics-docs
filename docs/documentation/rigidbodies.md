@@ -8,10 +8,12 @@ Configuring rigid bodies can be difficult. This page describes some of the most 
 
 ## Increased Stackability
 
-In order to improve simulation stackability and stability in general, Rapier Extension Classes (eg. RapierRigidBody2D, ..) offer custom settings, such as:
-- **body_skin**: adds a small skin on top of the body, defualt is 0
-- **soft_ccd**: setting this to a small value of how much the object might overlap helps with reducing squishiness.
-- **massless**: sets mass to 0. Needs to be set when using multibody joints.
+In order to improve simulation stackability and stability in general, Rapier Extension Classes (eg. RapierRigidBody2D, ..) offer custom settings. The two that matter most for stacks:
+
+- **body_skin** adds a small contact skin, so stacked bodies rest slightly apart instead of jittering.
+- **additional_solver_iterations** raises solver accuracy for one important body and everything it touches, without a global cost.
+
+All properties are listed with types and defaults in the [Class Reference](../reference/bodies).
 
 ## Ghost Collisions
 
@@ -19,24 +21,15 @@ Ghost Collisions are collisions that stop objects from moving when intersecting 
 
 ![ghost collisions](/img/ghost_collisions.gif)
 
-There are 2 things implemented to fix ghost collisions.
+### How to avoid them
 
-1. The first implementation follows the idea of [Brian Semrau - Dealing with Ghost Collisions](https://briansemrau.github.io/dealing-with-ghost-collisions/) article. For a more in-depth explanation read his article.
+**Build the ground from one shape, not many.** A row of separate `StaticBody2D` boxes has a seam at every join, and a body sliding across can catch on each one. A single `ConcavePolygonShape2D` measurably reduces this — in our benchmark it roughly halved the vertical kick a sliding box picks up.
 
-2. The second one fixes the normals of polygons that have information about points nearby, follows an idea similar to this [box2D Ghost Collisions](https://box2d.org/posts/2020/06/ghost-collisions/) (right now it's implemented just for 3D though).
+**In 3D, leave `backface_collision` off.** When a `ConcavePolygonShape3D` declares itself one-sided, godot-rapier builds the trimesh with `FIX_INTERNAL_EDGES`, which is the robust construction-time fix: contact normals are clamped using per-vertex pseudo-normals, so the invalid contacts at internal edges never generate. Turning `backface_collision` on requires collisions from both sides and disables it.
 
-### Ghost Collisions Fix in modify_contacts
+**In 2D, `physics/rapier/logic/oriented_concave_polyline_2d`** applies the same idea to polylines. It is **disabled by default** and should stay that way for most projects, because Godot's `ConcavePolygonShape2D` is double-sided — there is no `backface_collision` property on it — so enabling this makes your level geometry one-sided and bodies can pass through it from the wrong side.
 
-The first fix is to disable the contacts in the [PhysicsHooks::modify_solver_contacts](https://rapier.rs/docs/user_guides/rust/advanced_collision_detection/#contact-modification) event if:
-
-1. The contact normal opposes the player’s velocity (which could cause the player to get caught).
-2. The contact distance is smaller than the `physics/rapier/logic/ghost_collision_distance` project setting value. (Note, here we are also taking the velocity in consideration)
-
-In order to activate it set `physics/rapier/logic/ghost_collision_distance` to `1.0` or something bigger.
-
-### Ghost Collisions Side Effects
-
-The side effects of this solution is that objects might pass through each other a bit. If this is not intended you can disable it by setting the `ghost_collision_distance` to 0.
+If you do enable it, the winding matters: the solid must be to the right of each segment's direction. godot-rapier corrects the winding automatically for closed loops, and warns for open polylines, where there is no interior and no way to tell which side is solid.
 
 ## Continuous Collision Detection
 
