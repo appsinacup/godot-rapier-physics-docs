@@ -13,6 +13,8 @@ Godot Rapier now runs on **Rapier 0.35**.
 
 Both 2D and 3D builds now always have **parallel SIMD** solver and **cross platform determinism** enabled.
 
+Here is the repo used to run the tests [benchmarks-repo](https://github.com/Ughuuu/benchmarks-repo).
+
 ### 2D: Rapier vs Box2D
 
 Rapier is the only engine that keeps every scene stable: Box2D collapses the pyramid and blows the joints apart, those are marked as unstable.
