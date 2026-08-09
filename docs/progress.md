@@ -94,8 +94,6 @@ N/A|✅|Height Map Shape
 ✅|✅|Convex Polygon Shape
 ✅|✅|Concave Polygon Shape
 
-⌛ - If anyone asks for it on discord, will implement it. Right now no one uses this.
-
 ### Queries ✅
 
 2D | 3D | Query
