@@ -85,7 +85,7 @@ N/A | ❌ | SoftBody
 -|-|-
 ✅|✅|World Boundary Shape
 ✅|N/A|Segment Shape
-⌛|⌛|Separation Ray Shape
+✅|✅|Separation Ray Shape
 ✅|✅|Circle/Sphere Shape
 ✅|✅|Box/Rectangle Shape
 ✅|✅|Capsule Shape
