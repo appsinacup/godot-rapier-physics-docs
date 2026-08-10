@@ -1,6 +1,6 @@
 ---
 slug: v0-35-0
-title: 'v0.35.0 - Rapier vs Box2D vs Jolt vs Box3D'
+title: 'v0.35 - Rapier vs Box2D vs Jolt vs Box3D vs Godot Physics'
 date: 2026-08-08
 authors: 
   - name: Apps in a Cup
@@ -24,61 +24,65 @@ Rapier is the only engine that keeps every scene stable: Box2D collapses the pyr
 |-|-|-|
 | <img src="/img/engines/rapier.svg" alt="Rapier" height="22" /> [**Rapier2D**](https://github.com/dimforge/rapier) | v0.35 | [godot-rapier2d](https://github.com/appsinacup/godot-rapier-physics) |
 | <img src="/img/engines/box2d.svg" alt="Box2D" height="22" /> [**Box2D**](https://github.com/erincatto/box2d) | v3.1 | [godot-box2d-v3](https://github.com/Pizzaandy/godot-box2d-v3) |
+| <img src="/img/engines/godot.svg" alt="Godot Physics" height="22" /> [**Godot Physics 2D**](https://github.com/godotengine/godot) | v4.7 | ships with Godot |
 
-| Engine | <img src="/img/engines/rapier.svg" alt="Rapier" height="22" /><br />Rapier2D | <img src="/img/engines/box2d.svg" alt="Box2D" height="22" /><br />Box2D |
-|-|-|-|
-| ![pyramid](/img/benchmarks/2d_pyramid.png) | **16&nbsp;ms**<br />1.8&nbsp;cores | 17&nbsp;ms<br />4.1&nbsp;cores<br />**unstable** |
-| ![smash](/img/benchmarks/2d_smash.png) | **8&nbsp;ms**<br />2.2&nbsp;cores | 9&nbsp;ms<br />4.4&nbsp;cores |
-| ![pile](/img/benchmarks/2d_mixed_pile.png) | 7&nbsp;ms<br />2.0&nbsp;cores | **6&nbsp;ms**<br />3.2&nbsp;cores |
-| ![queries](/img/benchmarks/2d_query_storm.png) | 5.5&nbsp;ms<br />1.2&nbsp;cores | **3.9&nbsp;ms**<br />1.8&nbsp;cores |
-| ![joints](/img/benchmarks/2d_joint_grid.png) | **6.4&nbsp;ms**<br />1.6&nbsp;cores | 3.8&nbsp;ms<br />2.8&nbsp;cores<br />**unstable** |
+| Engine | <img src="/img/engines/rapier.svg" alt="Rapier" height="22" /><br />Rapier2D | <img src="/img/engines/box2d.svg" alt="Box2D" height="22" /><br />Box2D | <img src="/img/engines/godot.svg" alt="Godot Physics" height="22" /><br />Godot Physics |
+|-|-|-|-|
+| ![pyramid](/img/benchmarks/2d_pyramid.png) | **20.0&nbsp;ms**<br />1.8&nbsp;cores | 21.3&nbsp;ms<br />3.8&nbsp;cores<br />**unstable** | 147&nbsp;ms<br />1.2&nbsp;cores |
+| ![smash](/img/benchmarks/2d_smash.png) | 11.9&nbsp;ms<br />2.1&nbsp;cores | **11.6&nbsp;ms**<br />3.8&nbsp;cores | 55.1&nbsp;ms<br />1.3&nbsp;cores |
+| ![pile](/img/benchmarks/2d_mixed_pile.png) | 9.3&nbsp;ms<br />1.7&nbsp;cores | **6.7&nbsp;ms**<br />2.9&nbsp;cores | 71.1&nbsp;ms<br />1.3&nbsp;cores |
+| ![queries](/img/benchmarks/2d_query_storm.png) | 6.2&nbsp;ms<br />1.2&nbsp;cores | **4.6&nbsp;ms**<br />1.6&nbsp;cores | 57.2&nbsp;ms<br />1.1&nbsp;cores |
+| ![joints](/img/benchmarks/2d_joint_grid.png) | **10.2&nbsp;ms**<br />1.5&nbsp;cores | 4.9&nbsp;ms<br />2.6&nbsp;cores<br />**unstable** | **unstable**<br />never finishes |
 
-| Benchmark | Conclusion |
-|-|-|
-| Pyramid | **Rapier hold the pyramid stable**, 2.3x fewer cores. Box2D collapses, unstable |
-| Smash | **Rapier 1.13x faster**, 2.0x fewer cores |
-| Mixed shape pile | **Box2D 1.23x faster**, Rapier 1.6x fewer cores |
-| Query storm | **Box2D 1.42x faster**, Rapier 1.5x fewer cores |
-| Joint grid | **Rapier holds the joints together**; Box2D explodes, unstable |
+| Benchmark | 1st | 2nd | 3rd |
+|-|-|-|-|
+| Pyramid | **Rapier2D** | Box2D 1.07x | Godot Physics 7.35x |
+| Smash | **Box2D** | Rapier2D 1.02x | Godot Physics 4.76x |
+| Mixed shape pile | **Box2D** | Rapier2D 1.38x | Godot Physics 10.60x |
+| Query storm | **Box2D** | Rapier2D 1.37x | Godot Physics 12.56x |
+| Joint grid | **Box2D** | Rapier2D 2.06x | Godot Physics never finishes |
+
+Unstable runs, whose times are not comparable: Box2D on the pyramid (collapses) and on the joint
+grid (infinite displacement). Godot Physics does not finish the joint grid within 60&nbsp;s.
 
 ### 3D: Rapier vs Jolt vs Box3D
 
-Rapier3D is fastest on three of five scenes and 4x ahead on queries; Jolt crashes the joint grid. Box3D is single threaded (issue on godot-box3d side).
+Rapier3D is fastest on queries and joints and stays close on the rest; Jolt crashes the joint grid. Box3D became multi-threaded in godot-box3d v0.2.4 and is now the fastest on three scenes — the numbers below were re-measured against it.
 
 | Engine | Version | Addon |
 |-|-|-|
 | <img src="/img/engines/rapier.svg" alt="Rapier" height="22" /> [**Rapier3D**](https://github.com/dimforge/rapier) | v0.35 | [godot-rapier3d](https://github.com/appsinacup/godot-rapier-physics) |
 | <img src="/img/engines/jolt.png" alt="Jolt" height="22" /> [**Jolt**](https://github.com/jrouwe/JoltPhysics) | v5.5.0 | ships with Godot v4.7 |
-| <img src="/img/engines/box3d.svg" alt="Box3D" height="22" /> [**Box3D**](https://github.com/erincatto/box3d) | v0.1 | [godot-box3d](https://github.com/bearlikelion/godot-box3d) v0.2.3 |
+| <img src="/img/engines/box3d.svg" alt="Box3D" height="22" /> [**Box3D**](https://github.com/erincatto/box3d) | v0.1 | [godot-box3d](https://github.com/bearlikelion/godot-box3d) v0.2.4 |
+| <img src="/img/engines/godot.svg" alt="Godot Physics" height="22" /> [**Godot Physics 3D**](https://github.com/godotengine/godot) | v4.7 | ships with Godot |
 
-| | <img src="/img/engines/rapier.svg" alt="Rapier" height="22" /><br />Rapier3D | <img src="/img/engines/jolt.png" alt="Jolt" height="22" /><br />Jolt | <img src="/img/engines/box3d.svg" alt="Box3D" height="22" /><br />Box3D |
-|-|-|-|-|
-| ![queries](/img/benchmarks/3d_query_storm.png) | **5.6&nbsp;ms**<br />1.1&nbsp;cores | 22&nbsp;ms<br />1.2&nbsp;cores | 6.3&nbsp;ms<br />1.0&nbsp;cores |
-| ![pyramid](/img/benchmarks/3d_pyramid.png) | **19&nbsp;ms**<br />3.4&nbsp;cores | 24&nbsp;ms<br />5.6&nbsp;cores | 25&nbsp;ms<br />0.9&nbsp;cores |
-| ![pile](/img/benchmarks/3d_mixed_pile.png) | **10&nbsp;ms**<br />2.5&nbsp;cores | 11&nbsp;ms<br />5.1&nbsp;cores | 14&nbsp;ms<br />1.0&nbsp;cores |
-| ![joints](/img/benchmarks/3d_joint_grid.png) | **11.4&nbsp;ms**<br />2.3&nbsp;cores | **unstable**<br />never finishes | 11.2&nbsp;ms<br />1.0&nbsp;cores |
-| ![smash](/img/benchmarks/3d_smash.png) | 12&nbsp;ms<br />2.9&nbsp;cores | **11&nbsp;ms**<br />5.0&nbsp;cores | 17&nbsp;ms<br />1.0&nbsp;cores |
+| | <img src="/img/engines/rapier.svg" alt="Rapier" height="22" /><br />Rapier3D | <img src="/img/engines/jolt.png" alt="Jolt" height="22" /><br />Jolt | <img src="/img/engines/box3d.svg" alt="Box3D" height="22" /><br />Box3D | <img src="/img/engines/godot.svg" alt="Godot Physics" height="22" /><br />Godot Physics |
+|-|-|-|-|-|
+| ![queries](/img/benchmarks/3d_query_storm.png) | **5.9&nbsp;ms**<br />1.0&nbsp;cores | 26.4&nbsp;ms<br />1.1&nbsp;cores | 6.7&nbsp;ms<br />1.1&nbsp;cores | 73.3&nbsp;ms<br />1.0&nbsp;cores |
+| ![pyramid](/img/benchmarks/3d_pyramid.png) | 14.6&nbsp;ms<br />2.8&nbsp;cores | 26.9&nbsp;ms<br />4.7&nbsp;cores | **13.5&nbsp;ms**<br />2.7&nbsp;cores | 48.0&nbsp;ms<br />1.4&nbsp;cores |
+| ![pile](/img/benchmarks/3d_mixed_pile.png) | 11.3&nbsp;ms<br />2.1&nbsp;cores | 13.7&nbsp;ms<br />3.6&nbsp;cores | **9.7&nbsp;ms**<br />2.4&nbsp;cores | 84.9&nbsp;ms<br />1.7&nbsp;cores |
+| ![joints](/img/benchmarks/3d_joint_grid.png) | **8.9&nbsp;ms**<br />1.7&nbsp;cores | **unstable**<br />never finishes | 10.3&nbsp;ms<br />1.8&nbsp;cores<br />**unstable** | 26.1&nbsp;ms<br />1.2&nbsp;cores |
+| ![smash](/img/benchmarks/3d_smash.png) | 19.1&nbsp;ms<br />2.8&nbsp;cores | 12.1&nbsp;ms<br />5.0&nbsp;cores | **9.6&nbsp;ms**<br />2.9&nbsp;cores | 100&nbsp;ms<br />1.3&nbsp;cores |
 
-| Benchmark | Conclusion |
-|-|-|
-| Query storm | **Rapier 4.0x faster than Jolt**, on par with Box3D |
-| Pyramid | **Rapier 1.22x faster than Jolt, 1.27x than Box3D** |
-| Mixed shape pile | **Rapier 1.12x faster than Jolt, 1.37x than Box3D** |
-| Joint grid | Rapier and Box3D tie; **Jolt unstable**, never finishes |
-| Smash | **Jolt 1.05x faster**, using 1.7x more cores |
+| Benchmark | 1st | 2nd | 3rd | 4th |
+|-|-|-|-|-|
+| Query storm | **Rapier3D** | Box3D 1.12x | Jolt 4.46x | Godot Physics 12.35x |
+| Pyramid | **Box3D** | Rapier3D 1.08x | Jolt 1.99x | Godot Physics 3.55x |
+| Mixed shape pile | **Box3D** | Rapier3D 1.16x | Jolt 1.41x | Godot Physics 8.73x |
+| Joint grid | **Rapier3D** | Box3D 1.15x | Godot Physics 2.92x | Jolt never finishes |
+| Smash | **Box3D** | Jolt 1.26x | Rapier3D 1.99x | Godot Physics 10.40x |
 
-### Building without experimental-threads
+Unstable runs, whose times are not comparable: Box3D on the joint grid (infinite displacement).
+Jolt does not finish the joint grid within 60&nbsp;s, and Godot Physics does not finish the drop
+scene.
 
-Official builds enable `experimental-threads` so the physics server can be driven from other threads. It costs 7-51% depending on the scene, so building from source without it is faster:
+### experimental-threads is no longer enabled
 
-| Benchmark | Without threads | Official build | |
-|-|-|-|-|
-| 2D box pyramid | **16.4 ms** | 18.2 ms | 11% faster |
-| 2D mixed pile | **6.9 ms** | 8.0 ms | 17% faster |
-| 2D joint grid | **6.4 ms** | 7.4 ms | 15% faster |
-| 3D box pyramid | **19.4 ms** | 20.7 ms | 7% faster |
-| 3D smash | **12.0 ms** | 18.1 ms | 51% faster |
-| 3D query storm | **5.6 ms** | 8.0 ms | 43% faster |
+Official builds used to enable `experimental-threads` so the physics server could be driven from
+other threads. It cost 7-51% depending on the scene, and it turned out to be unnecessary: Godot
+already serialises every call onto a single physics thread through `PhysicsServer3DWrapMT` and its
+command queue, so the extra synchronisation was protecting a call path that is never concurrent.
+Godot Physics, Jolt and Box3D all take the same no-locking approach.
 
 ## New features
 
