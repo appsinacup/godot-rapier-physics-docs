@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Physics Server
 
-`RapierPhysicsServer2D` and `RapierPhysicsServer3D` extend Godot's physics servers with the methods below. Everything works on plain Godot nodes; the [body](bodies) and [joint](joints) nodes are inspector conveniences over this API.
+`RapierPhysicsServer2D` and `RapierPhysicsServer3D` extend Godot's physics servers the new methods below (that Godot does not have).
 
 All methods are static: `RapierPhysicsServer2D.method(...)`. The 3D server has the same API with 3D types.
 
