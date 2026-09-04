@@ -145,6 +145,10 @@ const config = {
                 href: 'https://appsinacup.com',
               },
               {
+                label: 'Balaur Engine',
+                href: 'https://balaurengine.org',
+              },
+              {
                 label: 'GitHub',
                 href: 'https://github.com/appsinacup/godot-rapier-physics',
               },

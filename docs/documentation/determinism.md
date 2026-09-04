@@ -93,3 +93,11 @@ Is used to interact with the physics server, that could be a source of creating 
 ## Rapier Wrapper
 
 The wrapper has a lot of functions. The main interface is the **PhysicsServer** one from godot. There are a bunch of setters and getters, a **step** function and most notably an iterative **move_and_x** function. Rapier also exposes a bunch of extra functions through the **RapierPhysicsServer**.
+
+:::note Determinism beyond the physics server
+
+Everything above is one deterministic system inside an engine that is not: the scene tree, rendering, input and scripting all sit outside the physics state, and keeping them in step is left to you.
+
+The same authors, together with Sébastien Crozet, the author of [Rapier](https://rapier.rs), are building [**Balaur**](https://balaurengine.org): a 2D and 3D engine in Rust where the whole tick is deterministic rather than just the physics. A fixed 60 Hz step, a digest per tick, record and replay, and rollback. It is at `0.1` and builds from source; this addon is still maintained.
+
+:::
