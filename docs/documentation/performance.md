@@ -14,6 +14,8 @@ If the performance you are getting is not what you are expecting, first thing to
 
 p50 physics step time on the same scenes, release builds, Godot 4.7, M1, rendering excluded. Lower is better.
 
+The same scenes are also measured in the [Balaur](https://balaurengine.org) engine, which wraps Rapier directly rather than through a Godot addon: [balaurengine.org/docs/benchmarks](https://balaurengine.org/docs/benchmarks) puts its numbers beside the ones below, run on the same machine.
+
 Benchmark | Rapier2D | [Box2D v3](https://github.com/Pizzaandy/godot-box2d-v3) | | Rapier3D | [Jolt](https://github.com/godot-jolt/godot-jolt)
 -|-|-|-|-|-
 Box pyramid (10k bodies 2D) | **15.6 ms** | 17.0 ms | | **20.6 ms** | 25.1 ms
