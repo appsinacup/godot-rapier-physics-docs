@@ -92,7 +92,7 @@ Is used to interact with the physics server, that could be a source of creating 
 
 ## Rapier Wrapper
 
-The wrapper has a lot of functions. The main interface is the **PhysicsServer** one from godot. There are a bunch of setters and getters, a **step** function and most notably an iterative **move_and_x** function. Rapier also exposes a bunch of extra functions through the **RapierPhysicsServer**.
+The wrapper has a lot of functions. The main interface is the **PhysicsServer** one from godot. There are a bunch of setters and getters, a **step** function and in particular an iterative **move_and_x** function. Rapier also exposes a bunch of extra functions through the **RapierPhysicsServer**.
 
 :::note Determinism beyond the physics server
 
