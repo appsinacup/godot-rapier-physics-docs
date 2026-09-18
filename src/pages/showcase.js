@@ -71,6 +71,15 @@ const showcaseItems = [
     platform: 'Google Play',
     link: 'https://play.google.com/store/apps/details?id=com.jamesresend.dotescape',
     quote: "Thank you to all contributors that work on this engine, without you I would have scrapped the game to due bad Godot physics 💙",
+  },
+  {
+    title: 'MULTIMATUM',
+    description:
+      "MULTIMATUM is a fast-paced top-down shooter with roguelite elements about unfortunate multiworld adventurers, trapped in isolated worlds. Fight the protagonists' tormenting past projections and return the blade of God to its owner in order to return home.",
+    image: '/img/showcase/multimatum.jpg',
+    platform: 'Steam',
+    link: 'https://store.steampowered.com/app/3674010/MULTIMATUM/',
+    quote: "Thank you for such an awesome gdextension! It has improved physics and made ragdolls doable with better PinJoint2D!",
   }
 ];
 
