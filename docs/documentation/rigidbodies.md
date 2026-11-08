@@ -25,6 +25,8 @@ Ghost Collisions are collisions that stop objects from moving when intersecting 
 
 **Build the ground from one shape, not many.** A row of separate `StaticBody2D` boxes has a seam at every join, and a body sliding across can catch on each one. A single `ConcavePolygonShape2D` measurably reduces this — in our benchmark it roughly halved the vertical kick a sliding box picks up.
 
+**For a `TileMapLayer`, raise `physics_quadrant_size`.** Each physics quadrant (16 tiles by default) is its own static body, and seams are only removed within one body, so a body rolling across tiles bumps at every quadrant boundary. Setting it to a large value such as `1024` puts the tiles in one body. Tiles on different physics layers, and separate `TileMapLayer` nodes, stay separate bodies and keep their seams.
+
 **In 3D, leave `backface_collision` off.** When a `ConcavePolygonShape3D` declares itself one-sided, godot-rapier builds the trimesh with `FIX_INTERNAL_EDGES`, which is the robust construction-time fix: contact normals are clamped using per-vertex pseudo-normals, so the invalid contacts at internal edges never generate. Turning `backface_collision` on requires collisions from both sides and disables it.
 
 **In 2D, `physics/rapier/logic/oriented_concave_polyline_2d`** applies the same idea to polylines. It is **disabled by default** and should stay that way for most projects, because Godot's `ConcavePolygonShape2D` is double-sided — there is no `backface_collision` property on it — so enabling this makes your level geometry one-sided and bodies can pass through it from the wrong side.
