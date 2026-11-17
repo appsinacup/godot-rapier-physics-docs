@@ -80,6 +80,15 @@ const showcaseItems = [
     platform: 'Steam',
     link: 'https://store.steampowered.com/app/3674010/MULTIMATUM/',
     quote: "Thank you for such an awesome gdextension! It has improved physics and made ragdolls doable with better PinJoint2D!",
+  },
+  {
+    title: "CombTris",
+    description: "CombTris is an arcade physics based stacker",
+    image: "/img/showcase/combtris.png",
+    platform: "itch.io",
+    link: "https://aragubas.itch.io/combtris",
+    quote:
+      "Thank you such such an awesome GDExtension! it improved physics and made CombTris possible!",
   }
 ];
 
